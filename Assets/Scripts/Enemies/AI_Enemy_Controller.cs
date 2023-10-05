@@ -16,7 +16,7 @@ public class AI_Enemy_Controller : MonoBehaviour
     private ParticleSystem _particleSystem;
     private Collider2D _collider2D;
 
-    private Ai_Chase_Controller ai_Chase_Controller;
+    private AI_Chase_Controller ai_Chase_Controller;
 
     private AI_Mob_Values _mob_Values;
 
@@ -25,7 +25,7 @@ public class AI_Enemy_Controller : MonoBehaviour
 
     private void Awake()
     {
-        ai_Chase_Controller = GetComponent<Ai_Chase_Controller>();
+        ai_Chase_Controller = GetComponent<AI_Chase_Controller>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _collider2D = GetComponent<Collider2D>();
         _particleSystem = GetComponentInChildren<ParticleSystem>();

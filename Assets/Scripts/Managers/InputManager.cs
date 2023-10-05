@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 
 public class InputManager : MonoBehaviour
 {
@@ -38,5 +39,11 @@ public class InputManager : MonoBehaviour
         var click = value.Get<float>();
 
         _mouseClick = click >= 1;
+    }
+    
+    private void OnChangeWeapon(InputValue value)
+    {
+        WeaponManager.Instance.ChangeWeapon(); // Change Weapon
+        Player_Controller.Instance.UpdateHealth(-10f);
     }
 }

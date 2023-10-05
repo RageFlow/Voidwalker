@@ -21,9 +21,9 @@ public class Projectile_Controller : MonoBehaviour
     {
         if (Weapon_Controller.Instance != null)
         {
-            _damage = Weapon_Controller.Instance.Damage;
-            _hits = Weapon_Controller.Instance.MobHits;
-            _force = Weapon_Controller.Instance.Force;
+            _damage = Weapon_Controller.Instance.WeaponValues.Damage;
+            _hits = Weapon_Controller.Instance.WeaponValues.MobHits;
+            _force = Weapon_Controller.Instance.WeaponValues.Force;
 
             _rigidbody2D = GetComponent<Rigidbody2D>();
 

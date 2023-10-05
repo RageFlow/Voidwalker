@@ -7,22 +7,11 @@ public class Weapon_Controller : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     [SerializeField] private Transform _muzzle;
     
-    [SerializeField] private GameObject _projectile;
     [SerializeField] private bool _canFire;
     private float _timer;
-    [SerializeField] private float _timeBetweenFiring;
 
-    public float Damage => _damage;
-    private float _damage = 10f;
-    private float _defaultDamage = 10f;
-    public float MobHits => _mobHits;
-    private float _mobHits = 2f;
-    public float Force => _force;
-    private float _force = 5f;
-
-    // Weapon upgradable
-    private float _currentStage = 0f;
-    private float _currentTimeBetweenFiring;
+    public Weapon_Values WeaponValues => _weaponValues;
+    private Weapon_Values _weaponValues;
 
     private void Awake()
     {
@@ -40,12 +29,7 @@ public class Weapon_Controller : MonoBehaviour
             _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
-        _currentTimeBetweenFiring = _timeBetweenFiring;
-    }
-
-    private void Start()
-    {
-        UpdateWeapon(); // Temp
+        _weaponValues = GetComponent<Weapon_Values>();
     }
 
     private void Update()
@@ -54,24 +38,16 @@ public class Weapon_Controller : MonoBehaviour
         Shooting();
     }
 
-    private void FixedUpdate()
+    public void UpdateWeapon(Abstract_Weapon_Values weaponValues)
     {
-        if (GameManager.Instance.GameStage > _currentStage && _currentTimeBetweenFiring > 0.05)
+        _weaponValues.SetValues(weaponValues);
+
+        if (_spriteRenderer != null && _muzzle != null)
         {
-            UpdateStage();
-            UpdateWeapon(); // Temp while weapon upgrades are not available
+            _spriteRenderer.sprite = _weaponValues.Sprite;
+            _spriteRenderer.color = _weaponValues.Color;
+            _muzzle.localPosition = new Vector3(_weaponValues.MuzzleOffset.x, _weaponValues.MuzzleOffset.y, 0f);
         }
-    }
-
-    private void UpdateStage()
-    {
-        _currentStage = GameManager.Instance.GameStage;
-        _currentTimeBetweenFiring = _timeBetweenFiring / _currentStage;
-    }
-
-    private void UpdateWeapon()
-    {
-        _damage = _defaultDamage * (GameManager.Instance.GameStage / 2);
     }
 
     private void Shooting()
@@ -79,18 +55,22 @@ public class Weapon_Controller : MonoBehaviour
         if (!_canFire)
         {
             _timer += Time.deltaTime;
-            if (_timer > _currentTimeBetweenFiring)
+            if (_timer > _weaponValues.TimeBetweenFiring)
             {
                 _canFire = true;
                 _timer = 0;
             }
         }
 
-        if (InputManager.Instance.MouseClick && _canFire)
+        if (_weaponValues != null && !string.IsNullOrEmpty(_weaponValues.Name))
         {
-            _canFire = false;
-            Instantiate(_projectile, _muzzle.position, Quaternion.identity, GameManager.Instance.ProjectileSpawnContainer);
+            if (InputManager.Instance.MouseClick && _canFire && _weaponValues.Projectile != null)
+            {
+                _canFire = false;
+                Instantiate(_weaponValues.Projectile, _muzzle.position, Quaternion.identity, GameManager.Instance.ProjectileSpawnContainer);
+            }
         }
+
     }
 
     private void HandleAnimation()

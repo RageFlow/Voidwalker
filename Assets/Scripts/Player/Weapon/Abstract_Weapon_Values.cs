@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Abstract_Weapon_Values : MonoBehaviour
+[System.Serializable]
+[CreateAssetMenu(fileName = "Weapon", menuName = "Weapon/BaseWeapon")]
+public class Abstract_Weapon_Values : ScriptableObject
 {
     public string Name => _name;
     [SerializeField] private string _name;
@@ -12,10 +14,16 @@ public class Abstract_Weapon_Values : MonoBehaviour
 
     public Sprite Sprite => _sprite;
     [SerializeField] private Sprite _sprite;
+    
+    public Vector2 MuzzleOffset => _muzzleOffset;
+    [SerializeField] private Vector2 _muzzleOffset;
 
     public float Damage => _damage;
     [SerializeField] private float _damage;
-    
+
+    public float DefaultDamage => _defaultDamage;
+    [SerializeField] private float _defaultDamage;
+
     public float MobHits => _mobHits;
     [SerializeField] private float _mobHits;
     
@@ -24,4 +32,10 @@ public class Abstract_Weapon_Values : MonoBehaviour
     
     public float TimeBetweenFiring => _timeBetweenFiring;
     [SerializeField] private float _timeBetweenFiring;
+
+    public float DefaultTimeBetweenFiring => _defaultTimeBetweenFiring;
+    [SerializeField] private float _defaultTimeBetweenFiring;
+
+    public GameObject Projectile => _projectile;
+    [SerializeField] private GameObject _projectile;
 }

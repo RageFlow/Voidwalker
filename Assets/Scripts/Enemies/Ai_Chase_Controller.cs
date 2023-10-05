@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Ai_Chase_Controller : MonoBehaviour
+public class AI_Chase_Controller : MonoBehaviour
 {
     private Rigidbody2D _rigidbody2D;
 
