@@ -1,0 +1,616 @@
+fileFormatVersion: 2
+guid: 98a71a02583328440998b156fa15a5aa
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 23
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Hero_Blue_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 163
+        width: 13
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.085}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d030c103041c284e83f6f3e834f8529
+      internalID: 500302237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Blue_1
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 163
+        width: 13
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.085}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f1faccab6ba6f746bbc6808a31bb265
+      internalID: -549445766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Blue_2
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 163
+        width: 13
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 0.085}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7af1c02f09c098440a739df68b5cbd42
+      internalID: -130976197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Blue_3
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 163
+        width: 13
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 0.085}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 558d012bdbb857e4d8b977a42a7df823
+      internalID: 1370195487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Blue_4
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 163
+        width: 13
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 0.085}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0905640b6a7de34eb06a7da0c79e49b
+      internalID: 907578708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Blue_5
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 131
+        width: 14
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 0.085}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69a36e4ea20df4d45af2c5cdf667b309
+      internalID: 1067282530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Blue_6
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 131
+        width: 13
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 0.085}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f168aaa64e38c940b37ceadf1438c1b
+      internalID: -2022617446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Blue_7
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 131
+        width: 12
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 0.085}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a26a0a14c429a264ca3419365a6f6b72
+      internalID: -221925545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Blue_8
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 131
+        width: 13
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 0.085}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56416f11746a98c4ca59cde9caf16721
+      internalID: -1634704970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Blue_9
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 99
+        width: 14
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 0.085}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76dc388eabc78f94d97c0ec51519df0f
+      internalID: 730841985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Blue_10
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 99
+        width: 12
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 0.085}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6100bfd09b47a514f9ee58661e373b45
+      internalID: -1096441099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Blue_11
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 99
+        width: 12
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 0.085}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb0e4c4ae8760634191c4cfe65ee2801
+      internalID: 1238178026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Blue_12
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 99
+        width: 12
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 0.085}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 612a3fd40f621d647bd3b1a1e3515a54
+      internalID: -285283693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Blue_13
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 99
+        width: 14
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 0.085}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90316ed5d9b7b164f88d6ada2d82b827
+      internalID: 1696905289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Blue_14
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 99
+        width: 12
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 0.085}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 801a0072313034743ab4b9a258982f46
+      internalID: -1932237847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Blue_15
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 99
+        width: 12
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 0.085}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f4a4cf2f33f3484ab811a596bc3e787
+      internalID: 907396118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Blue_16
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 99
+        width: 12
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 0.085}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 607cbd4d9a5a4c04cba50eea0f4ce6bc
+      internalID: 1644241579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Blue_17
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 131
+        width: 13
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 0.085}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ade0267fbd9ce946ab0f3f8818acd3d
+      internalID: -782324501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Blue_19
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 131
+        width: 13
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 0.085}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cb798906e88e8f4f8d1a11f93ed0bed
+      internalID: 1478305137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Blue_20
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 131
+        width: 13
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 0.085}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 665c984096e2ba8408d98081617f9ebb
+      internalID: -347661806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero_Blue_21
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 131
+        width: 13
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 0.085}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2e507c461bae66498b0f108a1669887
+      internalID: -1031095331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Hero_Blue_0: 500302237
+      Hero_Blue_1: -549445766
+      Hero_Blue_10: -1096441099
+      Hero_Blue_11: 1238178026
+      Hero_Blue_12: -285283693
+      Hero_Blue_13: 1696905289
+      Hero_Blue_14: -1932237847
+      Hero_Blue_15: 907396118
+      Hero_Blue_16: 1644241579
+      Hero_Blue_17: -782324501
+      Hero_Blue_18: -850546112
+      Hero_Blue_19: 1478305137
+      Hero_Blue_2: -130976197
+      Hero_Blue_20: -347661806
+      Hero_Blue_21: -1031095331
+      Hero_Blue_22: 350258672
+      Hero_Blue_23: -1631107710
+      Hero_Blue_24: 885224028
+      Hero_Blue_25: -1524336627
+      Hero_Blue_26: -20934920
+      Hero_Blue_27: -459552710
+      Hero_Blue_28: -1449052904
+      Hero_Blue_29: -1522839691
+      Hero_Blue_3: 1370195487
+      Hero_Blue_30: -1338257734
+      Hero_Blue_31: -2011925317
+      Hero_Blue_32: 1971291761
+      Hero_Blue_33: -577330435
+      Hero_Blue_34: -794570210
+      Hero_Blue_4: 907578708
+      Hero_Blue_5: 1067282530
+      Hero_Blue_6: -2022617446
+      Hero_Blue_7: -221925545
+      Hero_Blue_8: -1634704970
+      Hero_Blue_9: 730841985
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
