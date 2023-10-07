@@ -14,12 +14,15 @@ public class Abstract_Mob_Values : ScriptableObject
     public float Damage => _damage;
     [SerializeField] private float _damage;
     
+    public float TimeToAttack => _timeToAttack;
+    [SerializeField] private float _timeToAttack;
+    
     public float Difficulty => _difficulty;
     [SerializeField] private float _difficulty;
 
     // Gameplay
-    public GameObject DroppedGameObject => _droppedGameObject;
-    private GameObject _droppedGameObject;
+    public Abstract_Item_Values DroppedItem => _droppedItem;
+    [SerializeField] private Abstract_Item_Values _droppedItem;
 
     // Visuals
     public Color Color => _color;

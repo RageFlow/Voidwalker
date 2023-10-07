@@ -34,8 +34,11 @@ public class Weapon_Controller : MonoBehaviour
 
     private void Update()
     {
-        HandleAnimation();
-        Shooting();
+        if (!GameManager.Instance.GamePaused)
+        {
+            HandleAnimation();
+            Shooting();
+        }
     }
 
     public void UpdateWeapon(Abstract_Weapon_Values weaponValues)
@@ -48,6 +51,7 @@ public class Weapon_Controller : MonoBehaviour
             _spriteRenderer.color = _weaponValues.Color;
             _muzzle.localPosition = new Vector3(_weaponValues.MuzzleOffset.x, _weaponValues.MuzzleOffset.y, 0f);
         }
+        transform.localScale = new Vector3(weaponValues.Scale.x, weaponValues.Scale.y, 1);
     }
 
     private void Shooting()

@@ -40,6 +40,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "EscButton",
+                    "type": "Button",
+                    "id": "ef151fb3-ad6b-446f-a060-571615cb410e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ShiftButton",
+                    "type": "Button",
+                    "id": "3dad2cd4-d3e2-439d-a054-96341209dd66",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -128,6 +146,28 @@
                     "processors": "",
                     "groups": "Custom Control",
                     "action": "ChangeWeapon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2a33909a-226b-4fdb-bad9-c4bc24a5d734",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Custom Control",
+                    "action": "EscButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f738cb0f-d8e7-4528-8af6-919d5bccd74b",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Custom Control",
+                    "action": "ShiftButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -23,6 +23,9 @@ public class AI_Enemy_Controller : MonoBehaviour
     private string m_ID = Guid.NewGuid().ToString();
     public string ID => m_ID;
 
+    private float _attackTimer = 0f;
+    private bool _playerIsInRange;
+
     private void Awake()
     {
         ai_Chase_Controller = GetComponent<AI_Chase_Controller>();
@@ -64,6 +67,16 @@ public class AI_Enemy_Controller : MonoBehaviour
         if (Alive)
         {
             _spriteRenderer.flipX = !ai_Chase_Controller.ShouldBeFlipped; // Make mob look at player (X Axis)
+
+            if (_attackTimer >= _mob_Values.TimeToAttack)
+            {
+                Player_Controller.Instance.UpdateHealth(_mob_Values.Damage * -1);
+                _attackTimer = 0f;
+            }
+            else if (_playerIsInRange)
+            {
+                _attackTimer += Time.deltaTime;
+            }
         }
         else
         {
@@ -77,7 +90,13 @@ public class AI_Enemy_Controller : MonoBehaviour
         if (!Alive && _spriteRenderer.color.a <= 0f) // Destroy if Crude Anime Fade is done
         {
             Destroy(gameObject);
+            Debug.Log("KO");
         }
+    }
+
+    private void SpawnDrop()
+    {
+        ItemManager.Instance.SpawnItem(transform.position, _mob_Values.DroppedItem);
     }
 
     private void AnimateDeath()
@@ -98,6 +117,24 @@ public class AI_Enemy_Controller : MonoBehaviour
             {
                 _particleSystem.Play();
             }
+
+            SpawnDrop();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.gameObject.tag == "Player")
+        {
+            _playerIsInRange = true;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.gameObject.tag == "Player")
+        {
+            _playerIsInRange = false;
+            _attackTimer = 0f;
         }
     }
 

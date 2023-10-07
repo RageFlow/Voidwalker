@@ -18,22 +18,22 @@ public class InputManager : MonoBehaviour
         }
     }
 
-    private Vector2 _move;
     public Vector2 Move => _move;
+    private Vector2 _move;
     private void OnMove(InputValue value)
     {
         _move = value.Get<Vector2>();
     }
 
-    private Vector2 _mousePosition;
     public Vector2 MousePosition => _mousePosition;
+    private Vector2 _mousePosition;
     private void OnMousePosition(InputValue value)
     {
         _mousePosition = value.Get<Vector2>();
     }
 
-    private bool _mouseClick;
     public bool MouseClick => _mouseClick;
+    private bool _mouseClick;
     private void OnMouseClick(InputValue value)
     {
         var click = value.Get<float>();
@@ -44,6 +44,16 @@ public class InputManager : MonoBehaviour
     private void OnChangeWeapon(InputValue value)
     {
         WeaponManager.Instance.ChangeWeapon(); // Change Weapon
-        Player_Controller.Instance.UpdateHealth(-10f);
+    }
+    
+    private void OnEscButton(InputValue value)
+    {
+        MenuManager.Instance.OnEscButton();
+    }
+    
+    private void OnShiftButton(InputValue value)
+    {
+        AbilityManager.Instance.Dash_Ability.ChangeActive(true); // Temp
+        AbilityManager.Instance.Dash_Ability.UseAbility();
     }
 }

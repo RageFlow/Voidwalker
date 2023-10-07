@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Eye Watcher
   _health: 50
-  _damage: 1
+  _damage: 5
+  _timeToAttack: 0.1
   _difficulty: 3
+  _droppedItem: {fileID: 11400000, guid: 2b389ddb015c8ab40882ffdefd1aa142, type: 2}
   _color: {r: 0.74509805, g: 0.56078434, b: 0.26666668, a: 1}
   _sprite: {fileID: -966933824, guid: d4c84422c12a82b4a9df897898f5ded5, type: 3}
   _animatorController: {fileID: 9100000, guid: 1acb4b6c2021e6f478bf4fa59572255a, type: 2}

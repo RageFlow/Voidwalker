@@ -9,12 +9,15 @@ public class AI_Mob_Values : MonoBehaviour
     public float Damage => _damage;
     private float _damage;
 
+    public float TimeToAttack => _timeToAttack;
+    private float _timeToAttack;
+
     public float Difficulty => _difficulty;
     private float _difficulty;
 
     // Gameplay
-    public GameObject DroppedGameObject => _droppedGameObject;
-    private GameObject _droppedGameObject;
+    public Abstract_Item_Values DroppedItem => _droppedItem;
+    private Abstract_Item_Values _droppedItem;
 
     // Visuals
     public Color Color => _color;
@@ -41,7 +44,11 @@ public class AI_Mob_Values : MonoBehaviour
     {
         _health = values.Health;
         _damage = values.Damage;
+        _timeToAttack = values.TimeToAttack;
         _difficulty = values.Difficulty;
+
+        _droppedItem = values.DroppedItem;
+
         _color = values.Color;
         _sprite = values.Sprite;
         _animatorController = values.AnimatorController;

@@ -4,10 +4,16 @@ public class Player_Movement : MonoBehaviour
 {
     public static Player_Movement Instance;
 
+    public float MoveSpeed => _moveSpeed;
     [SerializeField] private float _moveSpeed = 10f;
 
+    public Vector2 MoveDirection => _moveDirection;
     private Vector2 _moveDirection = Vector2.zero;
 
+    public bool MovementBlocked => _movementBlocked;
+    private bool _movementBlocked;
+
+    public Rigidbody2D Rigidbody2D => _rigidbody2D;
     private Rigidbody2D _rigidbody2D;
 
     private float _velocityMagnitude;
@@ -19,8 +25,11 @@ public class Player_Movement : MonoBehaviour
     private bool _shouldBeFlipped;
 
     [SerializeField] private Animator _animator;
-    [SerializeField] private SpriteRenderer _spriteRenderer;
+
     public SpriteRenderer SpriteRenderer => _spriteRenderer;
+    [SerializeField] private SpriteRenderer _spriteRenderer;
+
+    public TrailRenderer _dustTrail;
 
     private void Awake()
     {
@@ -34,6 +43,7 @@ public class Player_Movement : MonoBehaviour
         }
 
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        
         if (_animator == null)
         {
             _animator = GetComponentInChildren<Animator>();
@@ -42,17 +52,29 @@ public class Player_Movement : MonoBehaviour
         {
             _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         }
+        if (_dustTrail == null)
+        {
+            _dustTrail = GetComponentInChildren<TrailRenderer>();
+        }
     }
 
     private void Update()
     {
-        HandleInput();
-        HandleAnimation();
+        if (!GameManager.Instance.GamePaused)
+        {
+            HandleInput();
+            HandleAnimation();
+        }
     }
 
     private void FixedUpdate()
     {
         HandleMovement();
+    }
+
+    public void ChangeMovementBlocked(bool value)
+    {
+        _movementBlocked = value;
     }
 
     private void HandleInput()
@@ -85,16 +107,15 @@ public class Player_Movement : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-    }
-
     private void HandleMovement()
     {
-        _velocityMagnitude = (transform.position - _lastPosition).magnitude;
+        if (!_movementBlocked)
+        {
+            _velocityMagnitude = (transform.position - _lastPosition).magnitude;
 
-        var newPos = _rigidbody2D.position + _moveDirection * _moveSpeed * Time.fixedDeltaTime;
-        _rigidbody2D.MovePosition(newPos);
+            var newPos = _rigidbody2D.position + _moveDirection * _moveSpeed * Time.fixedDeltaTime;
+            _rigidbody2D.MovePosition(newPos);
+        }
 
         _lastPosition = transform.position;
     }

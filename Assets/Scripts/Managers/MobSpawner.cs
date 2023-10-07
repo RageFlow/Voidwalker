@@ -35,7 +35,7 @@ public class MobSpawner : MonoBehaviour
     {
         _spawnTimer -= Time.deltaTime;
 
-        if (_spawnTimer <= 0f)
+        if (_spawnTimer <= 0f && GameManager.Instance.GameActive)
         {
             SpawnMobs();
             UdpateSpawnTimer();
@@ -44,7 +44,9 @@ public class MobSpawner : MonoBehaviour
 
     void UdpateSpawnTimer()
     {
-        _spawnTime = Mathf.Round(_defaultSpawnTime / GameManager.Instance.GameStage) + 1f;
+        // Changing spawn time
+        //_spawnTime = Mathf.Round(_defaultSpawnTime / GameManager.Instance.GameStage) + 1f;
+        _spawnTime = _defaultSpawnTime;
 
         _spawnTimer = _spawnTime;
     }
@@ -60,7 +62,12 @@ public class MobSpawner : MonoBehaviour
 
         List<Abstract_Mob_Values> Mobs = MobManager.Instance.Mobs.Where(x => x.Difficulty <= GameManager.Instance.GameStage).ToList();
 
-        int spawnAmount = (int)(_defaultAmount * GameManager.Instance.GameStage);
+        int spawnAmount = (int)_defaultAmount;
+
+        if (GameManager.Instance.GameStage > 1)
+        {
+            spawnAmount = (int)Mathf.Round(_defaultAmount * GameManager.Instance.GameStage / 2);
+        }
 
         foreach (var mob in Mobs)
         {
@@ -73,7 +80,7 @@ public class MobSpawner : MonoBehaviour
                 Vector3 location = new Vector3(Random.Range(-2, 4) + specificLocation.x, Random.Range(-2, 4) + +specificLocation.y, 0f);
                 Quaternion rotation = new Quaternion();
 
-                GameObject newMob = Instantiate(_mobPrefab, location, rotation, MobManager.Instance.MobContainer);
+                GameObject newMob = Instantiate(_mobPrefab, location, rotation, GameManager.Instance.MobSpawnContainer);
 
                 AI_Mob_Values mobValues = newMob.GetComponent<AI_Mob_Values>();
 

@@ -1,5 +1,53 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2700885607927145306
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7321041694455845643}
+  - component: {fileID: 547802625793060048}
+  m_Layer: 8
+  m_Name: NavMeshObsticle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7321041694455845643
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2700885607927145306}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2150961609219218245}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!208 &547802625793060048
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2700885607927145306}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.05, y: 0.2, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.3, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &3223451378296024280
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,8 +62,10 @@ GameObject:
   - component: {fileID: 6356566127920876511}
   - component: {fileID: 8990240155876663201}
   - component: {fileID: 3863070032755734380}
-  - component: {fileID: 8145304434738743732}
+  - component: {fileID: 311241977949363144}
   - component: {fileID: 977385150247266294}
+  - component: {fileID: 8454519275118392222}
+  - component: {fileID: 525911081340391117}
   m_Layer: 8
   m_Name: Mob_prefab
   m_TagString: Mob
@@ -38,6 +88,7 @@ Transform:
   m_Children:
   - {fileID: 6053934284656917362}
   - {fileID: 1857954008900085033}
+  - {fileID: 7321041694455845643}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &14819978698878787
@@ -149,8 +200,8 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!58 &8145304434738743732
-CircleCollider2D:
+--- !u!70 &311241977949363144
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -181,9 +232,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.4}
-  serializedVersion: 2
-  m_Radius: 0.5
+  m_Offset: {x: 0, y: 0.2}
+  m_Size: {x: 0.8, y: 0.35}
+  m_Direction: 1
 --- !u!50 &977385150247266294
 Rigidbody2D:
   serializedVersion: 4
@@ -196,7 +247,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -211,6 +262,63 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &8454519275118392222
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3223451378296024280}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.5}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!195 &525911081340391117
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3223451378296024280}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.4
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1001 &2681029749166499488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -222,10 +330,6 @@ PrefabInstance:
     - target: {fileID: 1873533088934962069, guid: 178d2a0ce90f10a49896e01f5bc4bc72, type: 3}
       propertyPath: m_Name
       value: Enemy_HealthBar
-      objectReference: {fileID: 0}
-    - target: {fileID: 1873533088934962069, guid: 178d2a0ce90f10a49896e01f5bc4bc72, type: 3}
-      propertyPath: m_Layer
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4394432458843636617, guid: 178d2a0ce90f10a49896e01f5bc4bc72, type: 3}
       propertyPath: m_LocalPosition.x
@@ -288,22 +392,6 @@ PrefabInstance:
     - target: {fileID: 1493690297211609693, guid: 3bb852f3fbe0e784fbfc3fc0c303deae, type: 3}
       propertyPath: m_Name
       value: Death Particles
-      objectReference: {fileID: 0}
-    - target: {fileID: 1493690297211609693, guid: 3bb852f3fbe0e784fbfc3fc0c303deae, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3440715334389936227, guid: 3bb852f3fbe0e784fbfc3fc0c303deae, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.b
-      value: 0.7019608
-      objectReference: {fileID: 0}
-    - target: {fileID: 3440715334389936227, guid: 3bb852f3fbe0e784fbfc3fc0c303deae, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.47450984
-      objectReference: {fileID: 0}
-    - target: {fileID: 3440715334389936227, guid: 3bb852f3fbe0e784fbfc3fc0c303deae, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.r
-      value: 0.61960787
       objectReference: {fileID: 0}
     - target: {fileID: 7149532634633533430, guid: 3bb852f3fbe0e784fbfc3fc0c303deae, type: 3}
       propertyPath: m_LocalPosition.x

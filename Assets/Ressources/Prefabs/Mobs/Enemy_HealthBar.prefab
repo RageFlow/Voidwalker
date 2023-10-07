@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4394432458843636617}
   - component: {fileID: 7323222770091202345}
   - component: {fileID: 1661087314215982405}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy_HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}

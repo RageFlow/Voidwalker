@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Blue Slime
   _health: 10
-  _damage: 1
+  _damage: 10
+  _timeToAttack: 0.2
   _difficulty: 1
+  _droppedItem: {fileID: 11400000, guid: 3f1b952a1a2bf83438bfe6d1cf69a611, type: 2}
   _color: {r: 0.3019608, g: 0.52156866, b: 0.5529412, a: 1}
   _sprite: {fileID: -1685928508, guid: d4c84422c12a82b4a9df897898f5ded5, type: 3}
   _animatorController: {fileID: 9100000, guid: f477cc050e6c8d542b4a7e19daa9f55a, type: 2}

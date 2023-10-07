@@ -14,7 +14,10 @@ public class Abstract_Weapon_Values : ScriptableObject
 
     public Sprite Sprite => _sprite;
     [SerializeField] private Sprite _sprite;
-    
+
+    public Vector2 Scale => _scale;
+    [SerializeField] private Vector2 _scale;
+
     public Vector2 MuzzleOffset => _muzzleOffset;
     [SerializeField] private Vector2 _muzzleOffset;
 

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AI_Chase_Controller : MonoBehaviour
 {
@@ -20,10 +21,13 @@ public class AI_Chase_Controller : MonoBehaviour
 
     private AI_Mob_Values _mob_Values;
 
+    private NavMeshAgent _agent;
+
     private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _agent = GetComponent<NavMeshAgent>();
     }
 
     private void Start()
@@ -37,6 +41,10 @@ public class AI_Chase_Controller : MonoBehaviour
             _stunTime = _mob_Values.StunTime;
 
             _animator.runtimeAnimatorController = _mob_Values.AnimatorController;
+
+            _agent.updateRotation = false;
+            _agent.updateUpAxis = false;
+            _agent.speed = _speed;
         }
         else
         {
@@ -48,20 +56,31 @@ public class AI_Chase_Controller : MonoBehaviour
     private void FixedUpdate()
     {
         _distance = Vector2.Distance(transform.position, Player_Movement.Instance.PlayerPosition);
-
         if (CheckStunned() && _distance < _distanceBetween)
         {
-            Vector2 direction = Player_Movement.Instance.PlayerPosition - transform.position;
-            direction.Normalize();
-
-            transform.position = Vector2.MoveTowards(transform.position, Player_Movement.Instance.PlayerPosition, _speed * Time.deltaTime);
+            _agent.SetDestination(Player_Movement.Instance.PlayerPosition);
 
             _shouldBeFlipped = transform.position.x < Player_Movement.Instance.PlayerPosition.x;
-
-            //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            //transform.rotation = Quaternion.Euler(Vector3.forward * angle);
         }
     }
+
+    //private void FixedUpdate()
+    //{
+    //    _distance = Vector2.Distance(transform.position, Player_Movement.Instance.PlayerPosition);
+
+    //    if (CheckStunned() && _distance < _distanceBetween)
+    //    {
+    //        Vector2 direction = Player_Movement.Instance.PlayerPosition - transform.position;
+    //        direction.Normalize();
+
+    //        transform.position = Vector2.MoveTowards(transform.position, Player_Movement.Instance.PlayerPosition, _speed * Time.deltaTime);
+
+    //        _shouldBeFlipped = transform.position.x < Player_Movement.Instance.PlayerPosition.x;
+
+    //        //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+    //        //transform.rotation = Quaternion.Euler(Vector3.forward * angle);
+    //    }
+    //}
 
     private bool CheckStunned()
     {

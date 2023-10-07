@@ -13,6 +13,9 @@ public class Weapon_Values : MonoBehaviour
     public Sprite Sprite => _sprite;
     private Sprite _sprite;
 
+    public Vector2 Scale => _scale;
+    private Vector2 _scale;
+
     public Vector2 MuzzleOffset => _muzzleOffset;
     private Vector2 _muzzleOffset;
 

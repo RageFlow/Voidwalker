@@ -15,6 +15,7 @@ MonoBehaviour:
   _name: Pistol
   _color: {r: 1, g: 1, b: 1, a: 1}
   _sprite: {fileID: 1156883223, guid: 5aa34f1cb8de1dd4a8ca06c1a4d67647, type: 3}
+  _scale: {x: 0.7, y: 0.7}
   _muzzleOffset: {x: 0.3, y: 0.08}
   _damage: 10
   _defaultDamage: 10

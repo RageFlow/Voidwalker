@@ -7,9 +7,9 @@ public class MobManager : MonoBehaviour
 
     public List<Abstract_Mob_Values> Mobs => _mobs;
     [SerializeField] private List<Abstract_Mob_Values> _mobs;
-
-    public Transform MobContainer => _mobContainer;
-    [SerializeField] private Transform _mobContainer;
+    
+    public List<Abstract_Item_Values> Items => _items;
+    [SerializeField] private List<Abstract_Item_Values> _items;
 
     private void Awake()
     {
