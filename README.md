@@ -11,8 +11,9 @@ H3 Game Design - Roguelike/Exploration Space Planet Game
 # Game Description and Explanation:
 
 ## 1.  Description:
-   "Voidwalker: Explorers of the Unknown" is a Roguelike Sci-fi game with exploration created with Unity 2d. Where the player (Android robot) must explore a newly discovered planet filled with extraterrestrial life, build an outpost(base) and destroy/battle any Alien lifeforms that try to hinder and stop the player's newly created outpost, while under the pressure of staying alive and recharging power with biomaterial from Alien creatures(mobs) and plantlife.
-## 2.  Game Story: The oxygen supply of the human planet Earth is slowly dwindling, and Earth's people are trying to find new habitable planets they can relocate to. The player is a new state of the art Android created by the humans who is sent out to space to explore an unknown but habitable planet. The player's mission is to stay alive and set up an outpost that can house and sustain human life.
+"Voidwalker: Explorers of the Unknown" is a Roguelike Sci-fi game with exploration created with Unity 2d. Where the player (Android robot) must explore a newly discovered planet filled with extraterrestrial life, build an outpost(base) and destroy/battle any Alien lifeforms that try to hinder and stop the player's newly created outpost, while under the pressure of staying alive and recharging power with biomaterial from Alien creatures(mobs) and plantlife.
+## 2.  Game Story:
+The oxygen supply of the human planet Earth is slowly dwindling, and Earth's people are trying to find new habitable planets they can relocate to. The player is a new state of the art Android created by the humans who is sent out to space to explore an unknown but habitable planet. The player's mission is to stay alive and set up an outpost that can house and sustain human life.
 
 ## 3.  Gameplay:
 
@@ -24,9 +25,11 @@ H3 Game Design - Roguelike/Exploration Space Planet Game
 5.  Upgrade outpost, weapons and equipment.
 6.  Upgrade the Outpost to allow for more human settlers.
 
-### 1.  Setting: Newly discovered alien planet.
+### 1.  Setting:
+Newly discovered alien planet.
 
-### 2.  Enemies: Different Alien lifeforms, (Dangerous and Passive mobs)
+### 2.  Enemies:
+Different Alien lifeforms, (Dangerous and Passive mobs)
 
 ## 1.  Features:
 1.  Stat-system: Tracking player stats like Speed, DMG etc.
