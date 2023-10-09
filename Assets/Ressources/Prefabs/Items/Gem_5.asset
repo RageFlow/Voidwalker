@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54643d40c29b95243888ac87237b9172, type: 3}
+  m_Name: Gem_5
+  m_EditorClassIdentifier: 
+  _name: Gem_5
+  _difficulty: 5
+  _itemSprite: {fileID: 21300000, guid: 018fb2cc812fb3f46ae022fc5666967a, type: 3}
+  _itemTripleSprite: {fileID: 21300000, guid: f7144e127ee5bdc43880412a132267ef, type: 3}
+  _itemMultiSprite: {fileID: 21300000, guid: 41e33e63c0bbfa94a8a3d9e15e83f0c2, type: 3}
+  _value: 5
+  _amount: 3

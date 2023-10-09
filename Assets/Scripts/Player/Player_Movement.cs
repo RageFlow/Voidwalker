@@ -16,6 +16,8 @@ public class Player_Movement : MonoBehaviour
     public Rigidbody2D Rigidbody2D => _rigidbody2D;
     private Rigidbody2D _rigidbody2D;
 
+    private CircleCollider2D _objectCollider;
+
     private float _velocityMagnitude;
 
     public Vector3 PlayerPosition => _lastPosition;
@@ -56,6 +58,16 @@ public class Player_Movement : MonoBehaviour
         {
             _dustTrail = GetComponentInChildren<TrailRenderer>();
         }
+
+        var colliders = GetComponents<CircleCollider2D>();
+
+        foreach (var collider in colliders)
+        {
+            if (!collider.isTrigger)
+            {
+                _objectCollider = collider;
+            }
+        }
     }
 
     private void Update()
@@ -75,6 +87,19 @@ public class Player_Movement : MonoBehaviour
     public void ChangeMovementBlocked(bool value)
     {
         _movementBlocked = value;
+    }
+    
+    public void RemoveMobCollision(bool value)
+    {
+        var mob = LayerMask.NameToLayer("Mob");
+        if (value) // Remove Mob
+        {
+            _objectCollider.excludeLayers |= (1 << mob);
+        }
+        else
+        {
+            _objectCollider.excludeLayers &= ~(1 << mob);
+        }
     }
 
     private void HandleInput()

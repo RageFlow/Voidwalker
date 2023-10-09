@@ -14,7 +14,8 @@ public class AI_Enemy_Controller : MonoBehaviour
 
     private SpriteRenderer _spriteRenderer;
     private ParticleSystem _particleSystem;
-    private Collider2D _collider2D;
+    private Collider2D _cirkleCollider2D;
+    private CapsuleCollider2D _capsuleCollider2D;
 
     private AI_Chase_Controller ai_Chase_Controller;
 
@@ -30,7 +31,8 @@ public class AI_Enemy_Controller : MonoBehaviour
     {
         ai_Chase_Controller = GetComponent<AI_Chase_Controller>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _collider2D = GetComponent<Collider2D>();
+        _cirkleCollider2D = GetComponent<CircleCollider2D>();
+        _capsuleCollider2D = GetComponent<CapsuleCollider2D>();
         _particleSystem = GetComponentInChildren<ParticleSystem>();
     }
     private void Start()
@@ -108,9 +110,10 @@ public class AI_Enemy_Controller : MonoBehaviour
     {
         _health -= value;
 
-        if (!Alive)
+        if (!Alive && value != 0f)
         {
-            _collider2D.isTrigger = true;
+            _capsuleCollider2D.enabled = false;
+            _cirkleCollider2D.enabled = false;
             ai_Chase_Controller.Kill();
             ai_Chase_Controller.enabled = false;
             if (_particleSystem != null)
@@ -140,7 +143,7 @@ public class AI_Enemy_Controller : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.tag == "Projectile")
+        if (_health > 0f && collider.gameObject.tag == "Projectile")
         {
             ai_Chase_Controller.Stun();
 

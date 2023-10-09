@@ -25,13 +25,13 @@ public class UI_ProgressBar_Controller : MonoBehaviour
         {
             var requirement = GameManager.Instance.GameLevelUpRequirement;
 
-            var progress = GameManager.Instance.KillCount / requirement;
+            var progress = GameManager.Instance.PointCount / requirement;
 
             _image.fillAmount = progress;
 
             _image.color = Color.HSVToRGB(_colorHue, _colorSaturation, _colorValue);
 
-            _text.SetText($"{GameManager.Instance.KillCount}/{requirement}");
+            _text.SetText($"{GameManager.Instance.PointCount}/{requirement}");
         }
     }
 }

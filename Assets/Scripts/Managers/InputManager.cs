@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
@@ -53,7 +54,12 @@ public class InputManager : MonoBehaviour
     
     private void OnShiftButton(InputValue value)
     {
-        AbilityManager.Instance.Dash_Ability.ChangeActive(true); // Temp
-        AbilityManager.Instance.Dash_Ability.UseAbility();
+        Base_Ability_Class DashAbility = AbilityManager.Instance.ActivatedAbilities.FirstOrDefault(x => x.AbilityName.Equals("Dash"));
+
+        if (DashAbility != null)
+        {
+            DashAbility.ChangeActive(true); // Temp
+            DashAbility.UseAbility();
+        }
     }
 }

@@ -7,20 +7,43 @@ using UnityEngine.UI;
 public class UI_Ability_Controller : MonoBehaviour
 {
     private Image _image;
+    private Image _overlay;
     private TextMeshProUGUI _text;
     private Base_Ability_Class _abilityClass;
 
-    void Start()
+    private void Awake()
     {
-        _image = GetComponentInChildren<Image>();
+        var images = GetComponentsInChildren<Image>();
+
+        foreach (var image in images)
+        {
+            if (image.gameObject.name == "Image")
+            {
+                _image = image;
+            }
+            else if (image.gameObject.name == "Overlay")
+            {
+                _overlay = image;
+
+                _overlay.fillAmount = 0f;
+            }
+        }
+
         _text = GetComponentInChildren<TextMeshProUGUI>();
     }
 
     void FixedUpdate()
     {
-        if (_abilityClass != null && _abilityClass.TimeRemaining > 0f)
+        if (_abilityClass != null)
         {
-
+            if (_abilityClass.TimeRemaining > 0f)
+            {
+                _overlay.fillAmount = _abilityClass.GetCooldownFloat();
+            }
+            else
+            {
+                _overlay.fillAmount = 0f;
+            }
         }
     }
 

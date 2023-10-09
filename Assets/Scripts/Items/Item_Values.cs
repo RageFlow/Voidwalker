@@ -28,8 +28,20 @@ public class Item_Values : MonoBehaviour
     {
         _name = values.Name;
         _difficulty = values.Difficulty;
-        _itemSprite = values.ItemSprite;
+        _amount = Mathf.Floor(Random.Range(values.Amount, (values.Amount * values.Value) / values.Difficulty));
+
+        if (_amount > 1 && _amount <= 3)
+        {
+            _itemSprite = values.ItemTripleSprite;
+        }
+        else if (_amount > 3)
+        {
+            _itemSprite = values.ItemMultiSprite;
+        }
+        else
+        {
+            _itemSprite = values.ItemSprite;
+        }
         _value = values.Value;
-        _amount = values.Amount;
     }
 }

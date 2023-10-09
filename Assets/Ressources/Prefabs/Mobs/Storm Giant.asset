@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d1a9f5d8a8aae548bbac296bec9ab6a, type: 3}
+  m_Name: Storm Giant
+  m_EditorClassIdentifier: 
+  _name: Storm Giant
+  _health: 100
+  _damage: 20
+  _timeToAttack: 0.5
+  _difficulty: 5
+  _droppedItem: {fileID: 11400000, guid: c2afab6b06951bd418e2b46dcd9f28b1, type: 2}
+  _color: {r: 1, g: 1, b: 1, a: 0}
+  _sprite: {fileID: 1611709095, guid: d4c84422c12a82b4a9df897898f5ded5, type: 3}
+  _animatorController: {fileID: 9100000, guid: eee4a37d8e7ffe1408e5aadbfc24c23b, type: 2}
+  _speed: 2
+  _chaseDistance: 1000
+  _stunTime: 0

@@ -15,5 +15,7 @@ MonoBehaviour:
   _name: Gem_3
   _difficulty: 3
   _itemSprite: {fileID: 21300000, guid: a7743684ae4f2d542a6d140f2d4ce971, type: 3}
+  _itemTripleSprite: {fileID: 21300000, guid: 0d1d48a3a1b607345a98841e15f946f8, type: 3}
+  _itemMultiSprite: {fileID: 21300000, guid: ed6b20cd6c94ebe4587e641de3c016ae, type: 3}
   _value: 3
-  _amount: 1
+  _amount: 3

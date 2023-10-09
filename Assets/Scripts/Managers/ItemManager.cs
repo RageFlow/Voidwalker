@@ -24,10 +24,13 @@ public class ItemManager : MonoBehaviour
 
     public void SpawnItem(Vector3 position, Abstract_Item_Values item)
     {
-        GameObject newItem = Instantiate(_droppedItemPrefab, position, new Quaternion(), GameManager.Instance.ItemSpawnContainer);
+        if (item != null)
+        {
+            GameObject newItem = Instantiate(_droppedItemPrefab, position, new Quaternion(), GameManager.Instance.ItemSpawnContainer);
 
-        Item_Values itemValues = newItem.GetComponent<Item_Values>();
+            Item_Values itemValues = newItem.GetComponent<Item_Values>();
 
-        itemValues.SetValues(item);
+            itemValues.SetValues(item);
+        }
     }
 }

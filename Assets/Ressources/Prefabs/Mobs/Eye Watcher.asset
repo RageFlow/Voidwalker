@@ -22,5 +22,5 @@ MonoBehaviour:
   _sprite: {fileID: -966933824, guid: d4c84422c12a82b4a9df897898f5ded5, type: 3}
   _animatorController: {fileID: 9100000, guid: 1acb4b6c2021e6f478bf4fa59572255a, type: 2}
   _speed: 4
-  _chaseDistance: 100
+  _chaseDistance: 1000
   _stunTime: 0.05

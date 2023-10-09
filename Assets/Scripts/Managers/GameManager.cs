@@ -48,24 +48,32 @@ public class GameManager : MonoBehaviour
     public Transform MobSpawnContainer => _mobSpawnContainer;
     [SerializeField] private Transform _mobSpawnContainer;
 
-    public float KillCount => _killCount;
-    private float _killCount;
+    public float PointCount => _pointCount;
+    private float _pointCount;
+    public float GlobalPointCount => _globalPointCount;
+    private float _globalPointCount;
+
     
     public float GlobalKillCount => _globalKillCount;
     private float _globalKillCount;
-
     public void AddKill(AI_Mob_Values mob)
     {
         if (mob != null)
         {
-            _killCount++;
             _globalKillCount++;
         }
+    }
 
-        if (_killCount >= _gameLevelUpRequirement)
+    public void AddPoint(float value)
+    {
+        _pointCount += value;
+        _globalPointCount += value;
+
+        if (_pointCount >= _gameLevelUpRequirement)
         {
+            var extraPoints = _pointCount - _gameLevelUpRequirement;
             _gameStage++;
-            _killCount = 0f;
+            _pointCount = extraPoints;
         }
     }
 

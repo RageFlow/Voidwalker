@@ -15,6 +15,12 @@ public class Abstract_Item_Values : ScriptableObject
     public Sprite ItemSprite => _itemSprite;
     [SerializeField] private Sprite _itemSprite;
     
+    public Sprite ItemTripleSprite => _itemTripleSprite;
+    [SerializeField] private Sprite _itemTripleSprite;
+    
+    public Sprite ItemMultiSprite => _itemMultiSprite;
+    [SerializeField] private Sprite _itemMultiSprite;
+    
     public float Value => _value;
     [SerializeField] private float _value;
     
