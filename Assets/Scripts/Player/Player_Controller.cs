@@ -8,8 +8,6 @@ public class Player_Controller : MonoBehaviour
 
     public float PlayerHealth => _playerHealth;
     private float _playerHealth = 100;
-    public float PlayerMaxHealth => _playerMaxHealth;
-    private float _playerMaxHealth = 100;
 
     private CircleCollider2D _pickupCollider;
 
@@ -43,25 +41,28 @@ public class Player_Controller : MonoBehaviour
 
     public float GetHealthValue()
     {
-        return _playerHealth / _playerMaxHealth;
+        return _playerHealth / Global_Values.PlayerMaxHealth;
     }
 
     public void UpdateHealth(float value)
     {
-        _playerHealth += value;
-
-        if (_playerHealth >= 0f)
+        if (_playerHealth > 0f)
         {
+            _playerHealth += value;
+        }
+
+        if (_playerHealth <= 0f)
+        {
+            _playerHealth = 0f;
             GameManager.Instance.EndGame();
         }
     }
     
-    public void UpdatePickupRadius(float value)
+    public void UpdatePickupRadius()
     {
         if (_pickupCollider != null)
         {
-            _pickupRadius = value;
-            _pickupCollider.radius = _pickupRadius;
+            _pickupCollider.radius = Global_Values.PickupRadius;
         }
     }
 

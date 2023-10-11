@@ -16,7 +16,7 @@ public class UI_Total_Kills_Display : MonoBehaviour
     {
         if (GameManager.Instance != null)
         {
-            _text.SetText($"Total Kills\n{GameManager.Instance.GlobalKillCount:n0}");
+            _text.SetText($"Kills\n{GameManager.Instance.GlobalKillCount:n0}");
         }
     }
 }

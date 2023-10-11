@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1558789077963337664}
   - component: {fileID: 6052428038497140273}
   - component: {fileID: 3185409514678450493}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 215958863441763413}
   - component: {fileID: 6131621327612123810}
   - component: {fileID: 7345434496767491183}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Environment_item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +242,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0

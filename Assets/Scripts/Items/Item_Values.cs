@@ -24,11 +24,26 @@ public class Item_Values : MonoBehaviour
         _amount += amount;
     }
 
+    public float RemoveAmount(float value)
+    {
+        _amount -= value;
+        if (_amount < 0f)
+        {
+            var remaining = _amount * -1f;
+            _amount = 0f;
+            return remaining;
+        }
+        else
+        {
+            return 0f;
+        }
+    }
+
     public void SetValues(Abstract_Item_Values values)
     {
         _name = values.Name;
         _difficulty = values.Difficulty;
-        _amount = Mathf.Floor(Random.Range(values.Amount, (values.Amount * values.Value) / values.Difficulty));
+        _amount = Mathf.Floor((values.Amount * StageManager.Instance.GameStage) / values.Difficulty);
 
         if (_amount > 1 && _amount <= 3)
         {

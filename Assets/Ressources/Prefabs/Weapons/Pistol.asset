@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Pistol
   m_EditorClassIdentifier: 
   _name: Pistol
+  _description: Beginner pistol.
+  _price: 0
+  _activated: 1
   _color: {r: 1, g: 1, b: 1, a: 1}
   _sprite: {fileID: 1156883223, guid: 5aa34f1cb8de1dd4a8ca06c1a4d67647, type: 3}
   _scale: {x: 0.7, y: 0.7}
@@ -20,7 +23,7 @@ MonoBehaviour:
   _damage: 10
   _defaultDamage: 10
   _mobHits: 1
-  _force: 5
-  _timeBetweenFiring: 0.5
-  _defaultTimeBetweenFiring: 0.5
+  _force: 4
+  _timeBetweenFiring: 0.7
+  _defaultTimeBetweenFiring: 0.7
   _projectile: {fileID: 2024980906007618592, guid: 3ff434986782c5a4e8567c5edb24b476, type: 3}

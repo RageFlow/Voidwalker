@@ -15,15 +15,15 @@ public class Projectile_Controller : MonoBehaviour
     public float Hits => _hits;
     private float _hits;
 
-    private float _destroyTime = 5f;
+    private float _destroyTime = 2f;
 
     void Awake()
     {
         if (Weapon_Controller.Instance != null)
         {
-            _damage = Weapon_Controller.Instance.WeaponValues.Damage;
-            _hits = Weapon_Controller.Instance.WeaponValues.MobHits;
-            _force = Weapon_Controller.Instance.WeaponValues.Force;
+            _damage = Weapon_Controller.Instance.WeaponValues.Damage * Global_Values.WeaponDamageFactor;
+            _hits = Weapon_Controller.Instance.WeaponValues.MobHits * Global_Values.WeaponHitFactor;
+            _force = Weapon_Controller.Instance.WeaponValues.Force * Global_Values.WeaponForceFactor;
 
             _rigidbody2D = GetComponent<Rigidbody2D>();
 

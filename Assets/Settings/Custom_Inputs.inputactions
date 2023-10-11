@@ -58,6 +58,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "InteractButton",
+                    "type": "Button",
+                    "id": "e0b94846-13ee-456a-b0ce-e2a85f55450a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -168,6 +177,17 @@
                     "processors": "",
                     "groups": "Custom Control",
                     "action": "ShiftButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c351d2be-95f3-417b-a0e0-c23be8e8b15d",
+                    "path": "<Keyboard>/#(E)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Custom Control",
+                    "action": "InteractButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

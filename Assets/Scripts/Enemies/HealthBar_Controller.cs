@@ -8,13 +8,15 @@ public class HealthBar_Controller : MonoBehaviour
 
     private AI_Enemy_Controller _enemyController;
 
-    private void Awake()
+    private void Start()
     {
         _enemyController = gameObject.transform.parent.gameObject.GetComponent<AI_Enemy_Controller>();
-    }
 
-    void Start()
-    {
+        if (!_enemyController.ShowHealth)
+        {
+            gameObject.SetActive(false);
+        }
+
         _localScale = transform.localScale;
 
         _maxScale = _localScale.x;

@@ -16,7 +16,7 @@ public class UI_Stage_Display : MonoBehaviour
     {
         if (GameManager.Instance != null)
         {
-            _text.SetText($"Stage\n{GameManager.Instance.GameStage}/{GameManager.Instance.GameStagesTotal}");
+            _text.SetText($"Stage\n{StageManager.Instance.GameStage}/{StageManager.Instance.GameStagesTotal}");
         }
     }
 }

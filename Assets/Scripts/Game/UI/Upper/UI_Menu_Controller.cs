@@ -1,10 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
+using UnityEngine.UI;
 
 public class UI_Menu_Controller : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI _menuText;
+
+    [SerializeField] private GameObject _resumeButton;
+
+    [SerializeField] private GameObject _restartButton;
+
     public static UI_Menu_Controller Instance;
     private void Awake()
     {
@@ -26,6 +31,18 @@ public class UI_Menu_Controller : MonoBehaviour
 
     public void IsVisible(bool value)
     {
-        gameObject.SetActive(value);
+        if (!GameManager.Instance.GameActive)
+        {
+            gameObject.SetActive(true);
+            _menuText.SetText("GAME OVER!");
+            _resumeButton.SetActive(false);
+            _restartButton.SetActive(true);
+        }
+        else
+        {
+            gameObject.SetActive(value);
+            _resumeButton.SetActive(true);
+            _restartButton.SetActive(false);
+        }
     }
 }

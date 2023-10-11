@@ -15,7 +15,22 @@ public class Items_Collected_Controller : MonoBehaviour
         gameObject.RemoveChildren();
     }
 
+    private void Start()
+    {
+        PlayerManager.Instance.OnUpdated.AddListener(UpdateUI);
+    }
+
+    private void OnDestroy()
+    {
+        PlayerManager.Instance.OnUpdated.RemoveListener(UpdateUI);
+    }
+
     private void FixedUpdate()
+    {
+        UpdateUI();
+    }
+
+    private void UpdateUI()
     {
         if (ItemManager.Instance != null)
         {
@@ -27,7 +42,8 @@ public class Items_Collected_Controller : MonoBehaviour
                 {
                     uiItem.UpdateAmount(item.Amount);
                 }
-                else{
+                else
+                {
                     GameObject newItem = Instantiate(_itemPrefab, transform);
 
                     UI_Item_Controller itemController = newItem.GetComponent<UI_Item_Controller>();

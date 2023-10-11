@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class PlayerManager : MonoBehaviour
 
     public List<Item_Values> Items => _items;
     private List<Item_Values> _items = new();
+
+    public UnityEvent OnUpdated;
 
     private void Awake()
     {
@@ -19,6 +22,49 @@ public class PlayerManager : MonoBehaviour
         {
             Destroy(this);
         }
+    }
+
+    public void UpdatePlayerValues()
+    {
+        Player_Controller.Instance.UpdatePickupRadius();
+    }
+
+    public float GetTotalMoney()
+    {
+        var allMoney = _items.Select(x => x.Amount * x.Value).Sum();
+
+        return allMoney;
+    }
+
+    public bool CanBuyFor(float value)
+    {
+        return GetTotalMoney() >= value;
+    }
+
+    public void UpdateMoney(float amount)
+    {
+        float extraAmount = amount;
+
+        foreach (var item in _items)
+        {
+            if (extraAmount <= 0f)
+            {
+                continue;
+            }
+
+            var totalToRemove = extraAmount / item.Value;
+
+            var itemRemaining = item.RemoveAmount(totalToRemove);
+
+            extraAmount = itemRemaining * item.Value;
+        }
+
+        if (extraAmount > 0f || extraAmount < 0f)
+        {
+            Debug.LogWarning($"Unable to convert price to items {extraAmount} is remaining!");
+        }
+
+        OnUpdated.Invoke();
     }
 
     public void UpdateItem(string name, float amount)
@@ -46,7 +92,7 @@ public class PlayerManager : MonoBehaviour
 
         if (item is Item_Values)
         {
-            GameManager.Instance.AddPoint(Mathf.Floor(item.Amount));
+            StageManager.Instance.AddPoint(Mathf.Floor(item.Amount * item.Value));
         }
     }
 }

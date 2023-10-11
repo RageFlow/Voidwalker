@@ -9,7 +9,13 @@ public class Abstract_Ability_Class : ScriptableObject
 {
     public string Name => _name;
     [SerializeField] private string _name;
-    
+
+    public string Description => _description;
+    [SerializeField] private string _description;
+
+    public float Price => _price;
+    [SerializeField] private float _price;
+
     public bool Activated => _activated;
     [SerializeField] private bool _activated;
 
@@ -27,4 +33,14 @@ public class Abstract_Ability_Class : ScriptableObject
 
     public string AbilityClass => _abilityClass;
     [SerializeField] private string _abilityClass;
+
+    public void SetActive(bool value)
+    {
+        _activated = value;
+    }
+
+    public Abstract_Ability_Class Clone()
+    {
+        return Instantiate(this);
+    }
 }

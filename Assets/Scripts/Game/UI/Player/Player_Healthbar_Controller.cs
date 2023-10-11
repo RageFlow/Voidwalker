@@ -30,7 +30,7 @@ public class Player_Healthbar_Controller : MonoBehaviour
 
             _image.color = Color.HSVToRGB(hue, _colorSaturation, _colorValue);
 
-            _text.SetText(Player_Controller.Instance.PlayerHealth.ToString());
+            _text.SetText($"{Player_Controller.Instance.PlayerHealth}/{Global_Values.PlayerMaxHealth}");
         }
     }
 }

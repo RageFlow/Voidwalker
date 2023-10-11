@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using static UnityEngine.Rendering.DebugUI;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +17,8 @@ public class GameManager : MonoBehaviour
         }
 
         _gameActive = true;
+
+        Time.timeScale = 1f;
     }
 
     // Global Features
@@ -27,17 +31,6 @@ public class GameManager : MonoBehaviour
     public Texture2D GameCursorSprite => _gameCursorSprite;
     [SerializeField] private Texture2D _gameCursorSprite;
 
-    // Game specific
-    private float _gameDifficulty = 1f; // How difficult
-
-    public float GameLevelUpRequirement => _gameLevelUpRequirement;
-    private float _gameLevelUpRequirement => _gameDifficulty * 40 * _gameStage * _gameStage;
-
-    public float GameStage => _gameStage;
-    private float _gameStage = 1f;
-    
-    public float GameStagesTotal => _gameStagesTotal;
-    private float _gameStagesTotal = 99f;
 
     public Transform ProjectileSpawnContainer => _projectileSpawnContainer;
     [SerializeField] private Transform _projectileSpawnContainer;
@@ -47,11 +40,6 @@ public class GameManager : MonoBehaviour
 
     public Transform MobSpawnContainer => _mobSpawnContainer;
     [SerializeField] private Transform _mobSpawnContainer;
-
-    public float PointCount => _pointCount;
-    private float _pointCount;
-    public float GlobalPointCount => _globalPointCount;
-    private float _globalPointCount;
 
     
     public float GlobalKillCount => _globalKillCount;
@@ -64,36 +52,64 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void AddPoint(float value)
-    {
-        _pointCount += value;
-        _globalPointCount += value;
-
-        if (_pointCount >= _gameLevelUpRequirement)
-        {
-            var extraPoints = _pointCount - _gameLevelUpRequirement;
-            _gameStage++;
-            _pointCount = extraPoints;
-        }
-    }
-
     public void EndGame()
     {
         _gameActive = false;
+        TogglePause(true);
     }
-    public void TogglePause(bool value)
+
+    private float GameEndCountdown = 2f;
+
+    private void LateUpdate()
     {
+        if (!_gameActive)
+        {
+            GameEndCountdown -= Time.deltaTime;
+            DisableTimeScale();
+        }
+    }
+
+    private void EnableTimeScale()
+    {
+        if (_gameActive)
+        {
+            Time.timeScale = 1f;
+        }
+    }
+    private void DisableTimeScale()
+    {
+        if (_gameActive || !_gameActive && GameEndCountdown <= 0)
+        {
+            Time.timeScale = 0f;
+        }
+    }
+
+    public void ToggleGamePause(bool value)
+    {
+        _gamePaused = value;
         if (value)
         {
-            Time.timeScale = 0;
+            DisableTimeScale();
             Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
         else
         {
-            Time.timeScale = 1f;
+            EnableTimeScale();
             Cursor.SetCursor(_gameCursorSprite, Vector2.zero, CursorMode.Auto);
         }
-        _gamePaused = value;
-        UI_Menu_Controller.Instance.IsVisible(_gamePaused);
+    }
+
+    public void TogglePause(bool value)
+    {
+        if (!_gameActive)
+        {
+            ToggleGamePause(true);
+            UI_Menu_Controller.Instance.IsVisible(_gamePaused);
+        }
+        else
+        {
+            ToggleGamePause(value);
+            UI_Menu_Controller.Instance.IsVisible(value);
+        }
     }
 }

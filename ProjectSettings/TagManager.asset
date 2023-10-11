@@ -7,11 +7,12 @@ TagManager:
   - Projectile
   - Mob
   - Item
+  - BuyStation
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Terrain
   - Water
   - UI
   - Player

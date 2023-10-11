@@ -7,6 +7,8 @@ public class AI_Enemy_Controller : MonoBehaviour
     private float _health;
     public float MaxHealth => _maxHealth;
     private float _maxHealth;
+    public bool ShowHealth => _showHealth;
+    private bool _showHealth;
 
     private float _damage;
 
@@ -42,6 +44,7 @@ public class AI_Enemy_Controller : MonoBehaviour
         if (_mob_Values != null)
         {
             _health = _mob_Values.Health;
+            _showHealth = _mob_Values.ShowHealth;
             _damage = _mob_Values.Damage;
             _spriteRenderer.sprite = _mob_Values.Sprite;
 
@@ -92,7 +95,6 @@ public class AI_Enemy_Controller : MonoBehaviour
         if (!Alive && _spriteRenderer.color.a <= 0f) // Destroy if Crude Anime Fade is done
         {
             Destroy(gameObject);
-            Debug.Log("KO");
         }
     }
 

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Pink Goblin
   _health: 30
+  _showHealth: 1
   _damage: 10
   _timeToAttack: 0.3
   _difficulty: 2

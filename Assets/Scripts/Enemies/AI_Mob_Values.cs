@@ -6,6 +6,9 @@ public class AI_Mob_Values : MonoBehaviour
     public float Health => _health;
     private float _health;
 
+    public bool ShowHealth => _showHealth;
+    private bool _showHealth;
+
     public float Damage => _damage;
     private float _damage;
 
@@ -43,6 +46,8 @@ public class AI_Mob_Values : MonoBehaviour
     public void SetValues(Abstract_Mob_Values values)
     {
         _health = values.Health;
+        _showHealth = values.ShowHealth;
+
         _damage = values.Damage;
         _timeToAttack = values.TimeToAttack;
         _difficulty = values.Difficulty;

@@ -4,9 +4,6 @@ public class Player_Movement : MonoBehaviour
 {
     public static Player_Movement Instance;
 
-    public float MoveSpeed => _moveSpeed;
-    [SerializeField] private float _moveSpeed = 10f;
-
     public Vector2 MoveDirection => _moveDirection;
     private Vector2 _moveDirection = Vector2.zero;
 
@@ -138,7 +135,7 @@ public class Player_Movement : MonoBehaviour
         {
             _velocityMagnitude = (transform.position - _lastPosition).magnitude;
 
-            var newPos = _rigidbody2D.position + _moveDirection * _moveSpeed * Time.fixedDeltaTime;
+            var newPos = _rigidbody2D.position + _moveDirection * Global_Values.MoveSpeed * Time.fixedDeltaTime;
             _rigidbody2D.MovePosition(newPos);
         }
 

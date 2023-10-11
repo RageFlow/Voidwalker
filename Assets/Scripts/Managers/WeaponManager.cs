@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
@@ -13,7 +14,9 @@ public class WeaponManager : MonoBehaviour
     private Abstract_Weapon_Values _activeWeapon;
 
     public List<Abstract_Weapon_Values> Weapons => _weapons;
-    [SerializeField] private List<Abstract_Weapon_Values> _weapons;
+    private List<Abstract_Weapon_Values> _weapons = new();
+
+    [SerializeField] private List<Abstract_Weapon_Values> _weaponAbstracts;
 
     private void Awake()
     {
@@ -27,10 +30,22 @@ public class WeaponManager : MonoBehaviour
         }
 
         _activeWeapon = _defaultWeapon;
+
+        if (_weaponAbstracts != null)
+        {
+            _weapons = _weaponAbstracts.Select(x => x.Clone()).ToList();
+        }
+
     }
 
     private void Start()
     {
+        UpdateWeapon();
+    }
+
+    public void SetActiveWeapon(string name)
+    {
+        _activeWeapon = _weapons.FirstOrDefault(x => x.Name == name);
         UpdateWeapon();
     }
 

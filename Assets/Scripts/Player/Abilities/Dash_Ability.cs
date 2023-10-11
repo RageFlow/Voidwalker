@@ -29,7 +29,7 @@ public class Dash_Ability : Base_Ability_Class
         _canUse = false;
         Player_Movement.Instance.RemoveMobCollision(true);
         Player_Movement.Instance.ChangeMovementBlocked(true);
-        Player_Movement.Instance.Rigidbody2D.velocity = Player_Movement.Instance.MoveDirection * Player_Movement.Instance.MoveSpeed * _dashPowerFactor;
+        Player_Movement.Instance.Rigidbody2D.velocity = Player_Movement.Instance.MoveDirection * Global_Values.MoveSpeed * _dashPowerFactor;
         Player_Movement.Instance._dustTrail.emitting = true;
 
         yield return new WaitForSeconds(_dashTime);

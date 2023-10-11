@@ -6,7 +6,10 @@ public class Base_Ability_Class : MonoBehaviour
 {
     public string AbilityName => _abilityName;
     protected string _abilityName;
-    
+
+    public string AbilityDescription => _abilityDescription;
+    private string _abilityDescription;
+
     public bool Activated => _activated;
     protected bool _activated;
 
@@ -48,6 +51,7 @@ public class Base_Ability_Class : MonoBehaviour
     public void SetAbilityValues(Abstract_Ability_Class values)
     {
         _abilityName = values.Name;
+        _abilityDescription = values.Description;
         _activated = values.Activated;
         _cooldown = values.Cooldown;
         _key = values.Key;

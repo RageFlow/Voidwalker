@@ -17,6 +17,8 @@ public class AI_Chase_Controller : MonoBehaviour
     public bool ShouldBeFlipped => _shouldBeFlipped;
     private bool _shouldBeFlipped;
 
+    private LayerMask _layerMask;
+
     private Animator _animator;
 
     private AI_Mob_Values _mob_Values;
@@ -51,11 +53,43 @@ public class AI_Chase_Controller : MonoBehaviour
             Object.Destroy(gameObject);
             Debug.LogWarning("Mob values was not found!");
         }
+
+        if (_agent != null)
+        {
+            _agent.speed = _speed;
+        }
+
+        string[] layers = new string[]{ "Terrain", "Player" };
+        _layerMask = LayerMask.GetMask(layers);
     }
 
     private void FixedUpdate()
     {
+        MoveWithAgent();
+        SetMovement();
+    }
+
+    private void SetMovement()
+    {
         _distance = Vector2.Distance(transform.position, Player_Movement.Instance.PlayerPosition);
+
+        RaycastHit2D hit;
+        var rayDirection = Player_Movement.Instance.PlayerPosition - transform.position;
+
+        hit = Physics2D.Raycast(transform.position, rayDirection, _distance, _layerMask);
+
+        if (hit.collider != null && hit.collider.gameObject.tag == "Player")
+        {
+            MoveWithDirect();
+        }
+        else
+        {
+            MoveWithAgent();
+        }
+    }
+
+    private void MoveWithAgent()
+    {
         if (CheckStunned() && _distance < _distanceBetween)
         {
             _agent.SetDestination(Player_Movement.Instance.PlayerPosition);
@@ -64,23 +98,20 @@ public class AI_Chase_Controller : MonoBehaviour
         }
     }
 
-    //private void FixedUpdate()
-    //{
-    //    _distance = Vector2.Distance(transform.position, Player_Movement.Instance.PlayerPosition);
+    private void MoveWithDirect()
+    {
+        _agent.ResetPath();
 
-    //    if (CheckStunned() && _distance < _distanceBetween)
-    //    {
-    //        Vector2 direction = Player_Movement.Instance.PlayerPosition - transform.position;
-    //        direction.Normalize();
+        if (CheckStunned() && _distance < _distanceBetween)
+        {
+            Vector2 direction = Player_Movement.Instance.PlayerPosition - transform.position;
+            direction.Normalize();
 
-    //        transform.position = Vector2.MoveTowards(transform.position, Player_Movement.Instance.PlayerPosition, _speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, Player_Movement.Instance.PlayerPosition, _speed * Time.deltaTime);
 
-    //        _shouldBeFlipped = transform.position.x < Player_Movement.Instance.PlayerPosition.x;
-
-    //        //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-    //        //transform.rotation = Quaternion.Euler(Vector3.forward * angle);
-    //    }
-    //}
+            _shouldBeFlipped = transform.position.x < Player_Movement.Instance.PlayerPosition.x;
+        }
+    }
 
     private bool CheckStunned()
     {

@@ -60,13 +60,13 @@ public class MobSpawner : MonoBehaviour
             x.y - _spawnRadius > Player_Movement.Instance.PlayerPosition.y
         ).ToList();
 
-        List<Abstract_Mob_Values> Mobs = MobManager.Instance.Mobs.Where(x => x.Difficulty <= GameManager.Instance.GameStage).ToList();
+        List<Abstract_Mob_Values> Mobs = MobManager.Instance.Mobs.Where(x => x.Difficulty <= StageManager.Instance.GameStage).ToList();
 
         int spawnAmount = (int)_defaultAmount;
 
-        if (GameManager.Instance.GameStage > 1)
+        if (StageManager.Instance.GameStage > 1)
         {
-            spawnAmount = (int)Mathf.Round(_defaultAmount * GameManager.Instance.GameStage / 2);
+            spawnAmount = (int)Mathf.Round(_defaultAmount * StageManager.Instance.GameStage / 2);
         }
 
         foreach (var mob in Mobs)

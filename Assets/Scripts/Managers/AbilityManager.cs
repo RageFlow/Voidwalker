@@ -11,8 +11,8 @@ public class AbilityManager : MonoBehaviour
     public Transform AbilityUIContainer => _abilityUIContainer;
     [SerializeField] private Transform _abilityUIContainer;
 
-    public List<Abstract_Ability_Class> AbilityAsbtracts => _abilityAsbtracts;
-    [SerializeField] private List<Abstract_Ability_Class> _abilityAsbtracts;
+    public List<Abstract_Ability_Class> AbilityValues => _abilityValues;
+    [SerializeField] private List<Abstract_Ability_Class> _abilityValues;
     
     public List<Base_Ability_Class> ActivatedAbilities => _activatedAbilities;
     private List<Base_Ability_Class> _activatedAbilities = new();
@@ -31,6 +31,13 @@ public class AbilityManager : MonoBehaviour
         {
             Destroy(this);
         }
+
+        if (_abilityValues != null)
+        {
+            _abilityValues = _abilityValues.Select(x => x.Clone()).ToList();
+        }
+
+        _activatedAbilities = new();
     }
     
     private void Start()
@@ -40,9 +47,24 @@ public class AbilityManager : MonoBehaviour
 
     private void SetAbilities()
     {
-        foreach (var item in AbilityAsbtracts)
+        foreach (var item in AbilityValues)
         {
             SetAbilityByAbstract(item);
+        }
+
+        SetAbilitiesUI();
+    }
+
+    public void ActivateAbility(string name)
+    {
+        Base_Ability_Class ability = _activatedAbilities.FirstOrDefault(x => x.AbilityName.Equals(name));
+        if (ability != null)
+        {
+            _activatedAbilities.Remove(ability);
+        }
+        else
+        {
+            SetAbilityByAbstract(_abilityValues.FirstOrDefault(x => x.Name.Equals(name)));
         }
 
         SetAbilitiesUI();
@@ -85,11 +107,11 @@ public class AbilityManager : MonoBehaviour
 
     private void SetAbilityUI(Base_Ability_Class item)
     {
-        var values = AbilityAsbtracts.FirstOrDefault(a => a.Name.Equals(item.AbilityName));
+        var values = AbilityValues.FirstOrDefault(a => a.Name.Equals(item.AbilityName));
         if (values != null)
         {
-            var ko = Instantiate(AbilityUIPrefab, _abilityUIContainer);
-            var controller = ko.GetComponent<UI_Ability_Controller>();
+            var newAbility = Instantiate(AbilityUIPrefab, _abilityUIContainer);
+            var controller = newAbility.GetComponent<UI_Ability_Controller>();
             controller.UpdateAbility(item, values.Sprite, values.Key);
         }
     }

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a720173de3e68674fae1cc20ca2559fb, type: 3}
+  m_Name: Pickup Radius
+  m_EditorClassIdentifier: 
+  _name: Pickup Radius
+  _description: 
+  _stage: 1
+  _maxStages: 10
+  _upgradeFactor: 1
+  _inclusive: 0
+  _defaultValue: 1
+  _price: 100
+  _activated: 1
+  _sprite: {fileID: -2013111308, guid: 488e213b23a6816409143f06d835279f, type: 3}
+  _affectedValue: PickupRadius
+  _shouldUpdatePlayer: 1

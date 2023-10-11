@@ -10,7 +10,10 @@ public class Abstract_Mob_Values : ScriptableObject
     // Stats
     public float Health => _health;
     [SerializeField] private float _health;
-    
+
+    public bool ShowHealth => _showHealth;
+    [SerializeField] private bool _showHealth;
+
     public float Damage => _damage;
     [SerializeField] private float _damage;
     

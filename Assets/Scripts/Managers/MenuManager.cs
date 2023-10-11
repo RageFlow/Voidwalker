@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using static UnityEngine.Rendering.DebugUI;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
@@ -23,10 +20,25 @@ public class MenuManager : MonoBehaviour
     public void OnEscButton()
     {
         GameManager.Instance.TogglePause(!GameManager.Instance.GamePaused);
+        if (BuyMenuManager.Instance.BuyMenuIsOpen)
+        {
+            BuyMenuManager.Instance.OpenBuyMenu(false);
+        }
     }
 
     public void ResumeGame()
     {
         GameManager.Instance.TogglePause(false);
+    }
+
+    public void ResetScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1f;
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

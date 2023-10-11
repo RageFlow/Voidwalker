@@ -18,4 +18,4 @@ MonoBehaviour:
   _itemTripleSprite: {fileID: 21300000, guid: f7144e127ee5bdc43880412a132267ef, type: 3}
   _itemMultiSprite: {fileID: 21300000, guid: 41e33e63c0bbfa94a8a3d9e15e83f0c2, type: 3}
   _value: 5
-  _amount: 3
+  _amount: 1

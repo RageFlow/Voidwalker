@@ -23,15 +23,15 @@ public class UI_ProgressBar_Controller : MonoBehaviour
     {
         if (GameManager.Instance != null)
         {
-            var requirement = GameManager.Instance.GameLevelUpRequirement;
+            var requirement = StageManager.Instance.GameLevelUpRequirement;
 
-            var progress = GameManager.Instance.PointCount / requirement;
+            var progress = StageManager.Instance.PointCount / requirement;
 
             _image.fillAmount = progress;
 
             _image.color = Color.HSVToRGB(_colorHue, _colorSaturation, _colorValue);
 
-            _text.SetText($"{GameManager.Instance.PointCount}/{requirement}");
+            _text.SetText($"{StageManager.Instance.PointCount}/{requirement}");
         }
     }
 }

@@ -62,4 +62,15 @@ public class InputManager : MonoBehaviour
             DashAbility.UseAbility();
         }
     }
+    private void OnInteractButton(InputValue value)
+    {
+        if (Buy_Station_Controller.Instance.PlayerInRange && !BuyMenuManager.Instance.BuyMenuIsOpen)
+        {
+            BuyMenuManager.Instance.OpenBuyMenu(true);
+        }
+        else if (BuyMenuManager.Instance.BuyMenuIsOpen)
+        {
+            BuyMenuManager.Instance.OpenBuyMenu(false);
+        }
+    }
 }
