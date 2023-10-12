@@ -10,6 +10,8 @@ public class UI_Menu_Controller : MonoBehaviour
 
     [SerializeField] private GameObject _restartButton;
 
+    public bool IsMenuVisible;
+
     public static UI_Menu_Controller Instance;
     private void Awake()
     {
@@ -31,6 +33,7 @@ public class UI_Menu_Controller : MonoBehaviour
 
     public void IsVisible(bool value)
     {
+        IsMenuVisible = value;
         if (!GameManager.Instance.GameActive)
         {
             gameObject.SetActive(true);
@@ -43,6 +46,18 @@ public class UI_Menu_Controller : MonoBehaviour
             gameObject.SetActive(value);
             _resumeButton.SetActive(true);
             _restartButton.SetActive(false);
+        }
+    }
+
+    public void OptionTextVisible(bool value)
+    {
+        if (value)
+        {
+            _menuText.SetText("OPTIONS");
+        }
+        else
+        {
+            _menuText.SetText("GAME PAUSED");
         }
     }
 }

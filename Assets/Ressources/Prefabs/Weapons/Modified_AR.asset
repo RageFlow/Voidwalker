@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Modified_AR
   m_EditorClassIdentifier: 
   _name: Modified AR 15
+  _type: Rifle
   _description: Perfect for long range!
   _price: 400
   _activated: 0
@@ -23,7 +24,10 @@ MonoBehaviour:
   _damage: 20
   _defaultDamage: 20
   _mobHits: 2
+  _projectileAmount: 1
+  _projectileSpread: 0
   _force: 8
+  _bulletAliveTime: 2
   _timeBetweenFiring: 0.1
   _defaultTimeBetweenFiring: 0.1
   _projectile: {fileID: 2024980906007618592, guid: 3ff434986782c5a4e8567c5edb24b476, type: 3}

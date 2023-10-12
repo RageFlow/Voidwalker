@@ -8,16 +8,19 @@ public class Projectile_Controller : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     
     private float _force;
-
-    public float Damage => _damage;
     private float _damage;
     
     public float Hits => _hits;
     private float _hits;
 
-    private float _destroyTime = 2f;
+    private float _directionOffset;
 
     void Awake()
+    {
+        Destroy(gameObject, Weapon_Controller.Instance.WeaponValues.BulletAliveTime);
+    }
+
+    private void Start()
     {
         if (Weapon_Controller.Instance != null)
         {
@@ -29,18 +32,21 @@ public class Projectile_Controller : MonoBehaviour
 
             var screenSpaceMousePosition = Camera.main.ScreenToWorldPoint(InputManager.Instance.MousePosition);
 
-            Vector3 direction = screenSpaceMousePosition - transform.position;
+            Vector2 direction = (Vector2)screenSpaceMousePosition - (Vector2)transform.position; // Stock
+
+            var vector2 = Quaternion.Euler(0, 0, _directionOffset) * direction.normalized * _force;
+            _rigidbody2D.velocity = vector2;
 
             Vector3 rotation = transform.position - screenSpaceMousePosition;
-
-            _rigidbody2D.velocity = new Vector2(direction.x, direction.y).normalized * _force;
-
             float floatRotation = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
 
             transform.rotation = Quaternion.Euler(0, 0, floatRotation + 90);
         }
+    }
 
-        Destroy(gameObject, _destroyTime);
+    public void UpdateDirectionOffset(float offset)
+    {
+        _directionOffset = offset;
     }
 
     private List<string> hitMobs = new();

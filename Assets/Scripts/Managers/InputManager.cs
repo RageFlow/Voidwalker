@@ -66,11 +66,11 @@ public class InputManager : MonoBehaviour
     {
         if (Buy_Station_Controller.Instance.PlayerInRange && !BuyMenuManager.Instance.BuyMenuIsOpen)
         {
-            BuyMenuManager.Instance.OpenBuyMenu(true);
+            BuyMenuManager.Instance.IsBuyMenuVisible(true);
         }
         else if (BuyMenuManager.Instance.BuyMenuIsOpen)
         {
-            BuyMenuManager.Instance.OpenBuyMenu(false);
+            BuyMenuManager.Instance.IsBuyMenuVisible(false);
         }
     }
 }

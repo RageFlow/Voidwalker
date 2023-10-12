@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Weapon Force Factor
   m_EditorClassIdentifier: 
   _name: Weapon Force Factor
+  _type: Weapon
   _description: 
   _stage: 1
   _maxStages: 20

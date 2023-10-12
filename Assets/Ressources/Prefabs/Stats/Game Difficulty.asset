@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Game Difficulty
   m_EditorClassIdentifier: 
   _name: Game Difficulty
+  _type: Game
   _description: 
   _stage: 1
   _maxStages: 5

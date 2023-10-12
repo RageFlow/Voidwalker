@@ -71,10 +71,38 @@ public class Weapon_Controller : MonoBehaviour
             if (InputManager.Instance.MouseClick && _canFire && _weaponValues.Projectile != null)
             {
                 _canFire = false;
-                Instantiate(_weaponValues.Projectile, _muzzle.position, Quaternion.identity, GameManager.Instance.ProjectileSpawnContainer);
+                SpawnProjectiles();
             }
         }
+    }
 
+    private void SpawnProjectiles()
+    {
+        if (_weaponValues.ProjectileAmount <= 1f)
+        {
+            SpawnProjectile(0f);
+        }
+        else
+        {
+            float spreadMid = _weaponValues.ProjectileSpread / _weaponValues.ProjectileAmount; // Spread per bullet
+
+            var positive = (_weaponValues.ProjectileAmount - 1) / 2; // Spread + - calculation
+
+            for (float i = positive * -1; i <= positive; i++) // eg. -2, -1, 0, 1, 2
+            {
+                SpawnProjectile(spreadMid * i);
+            }
+        }
+    }
+
+    private void SpawnProjectile(float offset)
+    {
+        var projectileGameObject = Instantiate(_weaponValues.Projectile, _muzzle.position, Quaternion.identity, GameManager.Instance.ProjectileSpawnContainer);
+        Projectile_Controller controller = projectileGameObject.GetComponent<Projectile_Controller>();
+        if (controller != null)
+        {
+            controller.UpdateDirectionOffset(offset);
+        }
     }
 
     private void HandleAnimation()

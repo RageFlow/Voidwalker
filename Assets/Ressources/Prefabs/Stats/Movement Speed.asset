@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Movement Speed
   m_EditorClassIdentifier: 
   _name: Movement Speed
+  _type: Player
   _description: 
   _stage: 1
   _maxStages: 30

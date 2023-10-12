@@ -9,6 +9,9 @@ public class Global_Values
 {
     // Global Specific
     public static float GameDifficulty { get; private set; } = 1f; // How difficult
+    public static bool ShowHealthbars { get; private set; } = false;
+    public static bool HideHealthbars { get; private set; } = false;
+    public static float DropRateFactor { get; private set; } = 1f;
 
     // Player Specific
     public static float MoveSpeed { get; private set; } = 1f;

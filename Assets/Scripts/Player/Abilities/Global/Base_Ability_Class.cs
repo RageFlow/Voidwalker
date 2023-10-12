@@ -7,6 +7,9 @@ public class Base_Ability_Class : MonoBehaviour
     public string AbilityName => _abilityName;
     protected string _abilityName;
 
+    public string AbilityType => _abilityType;
+    private string _abilityType;
+
     public string AbilityDescription => _abilityDescription;
     private string _abilityDescription;
 
@@ -51,6 +54,7 @@ public class Base_Ability_Class : MonoBehaviour
     public void SetAbilityValues(Abstract_Ability_Class values)
     {
         _abilityName = values.Name;
+        _abilityType = values.Type;
         _abilityDescription = values.Description;
         _activated = values.Activated;
         _cooldown = values.Cooldown;

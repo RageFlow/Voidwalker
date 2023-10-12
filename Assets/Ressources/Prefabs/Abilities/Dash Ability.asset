@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Dash Ability
   m_EditorClassIdentifier: 
   _name: Dash
+  _type: Player Movement
   _description: Dash ability can be used to quickly evade enemies.
-  _price: 500
+  _price: 0
   _activated: 0
   _showUI: 1
   _cooldown: 5

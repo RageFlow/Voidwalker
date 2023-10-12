@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Storm Giant
   _health: 100
+  _showHealth: 1
   _damage: 20
   _timeToAttack: 0.5
   _difficulty: 5

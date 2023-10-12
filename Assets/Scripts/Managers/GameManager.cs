@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         _gameActive = false;
-        TogglePause(true);
+        MenuManager.Instance.ToggleGameMenu(); // Open menu when game is over
     }
 
     private float GameEndCountdown = 2f;
@@ -96,20 +96,6 @@ public class GameManager : MonoBehaviour
         {
             EnableTimeScale();
             Cursor.SetCursor(_gameCursorSprite, Vector2.zero, CursorMode.Auto);
-        }
-    }
-
-    public void TogglePause(bool value)
-    {
-        if (!_gameActive)
-        {
-            ToggleGamePause(true);
-            UI_Menu_Controller.Instance.IsVisible(_gamePaused);
-        }
-        else
-        {
-            ToggleGamePause(value);
-            UI_Menu_Controller.Instance.IsVisible(value);
         }
     }
 }

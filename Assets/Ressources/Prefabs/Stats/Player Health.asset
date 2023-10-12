@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Player Health
   m_EditorClassIdentifier: 
   _name: Max Health
+  _type: Player
   _description: 
   _stage: 1
   _maxStages: 50

@@ -11,6 +11,9 @@ public class Abstract_Weapon_Values : ScriptableObject
     public string Name => _name;
     [SerializeField] private string _name;
     
+    public string Type => _type;
+    [SerializeField] private string _type;
+    
     public string Description => _description;
     [SerializeField] private string _description;
 
@@ -33,17 +36,26 @@ public class Abstract_Weapon_Values : ScriptableObject
     [SerializeField] private Vector2 _muzzleOffset;
 
     public float Damage => _damage;
-    [SerializeField] private float _damage;
+    [SerializeField] private float _damage = 1f;
 
     public float DefaultDamage => _defaultDamage;
-    [SerializeField] private float _defaultDamage;
+    [SerializeField] private float _defaultDamage = 1f;
 
     public float MobHits => _mobHits;
     [SerializeField] private float _mobHits;
-    
+
+    public float ProjectileAmount => _projectileAmount;
+    [SerializeField] private float _projectileAmount = 1f;
+
+    public float ProjectileSpread => _projectileSpread;
+    [SerializeField] private float _projectileSpread = 0f;
+
     public float Force => _force;
-    [SerializeField] private float _force;
-    
+    [SerializeField] private float _force = 1f;
+
+    public float BulletAliveTime => _bulletAliveTime;
+    [SerializeField] private float _bulletAliveTime = 1f;
+
     public float TimeBetweenFiring => _timeBetweenFiring;
     [SerializeField] private float _timeBetweenFiring;
 

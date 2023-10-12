@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Weapon Damage Factor 1
   m_EditorClassIdentifier: 
   _name: Weapon Damage Factor
+  _type: Weapon
   _description: 
   _stage: 1
   _maxStages: 20

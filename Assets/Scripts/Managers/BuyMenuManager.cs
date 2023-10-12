@@ -54,7 +54,7 @@ public class BuyMenuManager : MonoBehaviour
         PlayerManager.Instance.OnUpdated.RemoveListener(UpdateTotalMoney);
     }
 
-    public void OpenBuyMenu(bool value)
+    public void IsBuyMenuVisible(bool value)
     {
         if (_buyMenuUIGameObject != null)
         {
@@ -62,8 +62,12 @@ public class BuyMenuManager : MonoBehaviour
 
             _buyMenuIsOpen = value;
             _buyMenuUIGameObject.SetActive(value);
-            UpdateTotalMoney();
-            OnBuyMenuUpdated.Invoke();
+
+            if (value)
+            {
+                UpdateTotalMoney();
+                OnBuyMenuUpdated.Invoke();
+            }
         }
     }
 

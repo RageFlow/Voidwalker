@@ -45,6 +45,8 @@ public class Item_Values : MonoBehaviour
         _difficulty = values.Difficulty;
         _amount = Mathf.Floor((values.Amount * StageManager.Instance.GameStage) / values.Difficulty);
 
+        _amount = _amount * Global_Values.DropRateFactor;
+
         if (_amount > 1 && _amount <= 3)
         {
             _itemSprite = values.ItemTripleSprite;

@@ -7,6 +7,7 @@ public class BuyMenuPageItem_Controller : MonoBehaviour, IPointerEnterHandler, I
 {
     [SerializeField] private Image _image;
     [SerializeField] private TextMeshProUGUI _nameText;
+    [SerializeField] private TextMeshProUGUI _typeText;
 
     [SerializeField] private TextMeshProUGUI _stageText;
 
@@ -25,6 +26,9 @@ public class BuyMenuPageItem_Controller : MonoBehaviour, IPointerEnterHandler, I
 
     public string Name => _name;
     private string _name;
+    
+    public string Type => _type;
+    private string _type;
     
     public bool Activated => _activated;
     private bool _activated;
@@ -164,14 +168,16 @@ public class BuyMenuPageItem_Controller : MonoBehaviour, IPointerEnterHandler, I
 
         _image.sprite = _sprite;
         _nameText.SetText(_name);
+        _typeText.SetText(_type);
 
         _priceText.SetText(_price.ToString());
     }
 
-    public void SetValues(bool activated, string name, string description, Sprite sprite, float price, BuyMenuType buyMenuType)
+    public void SetValues(bool activated, string name, string type, string description, Sprite sprite, float price, BuyMenuType buyMenuType)
     {
         _activated = activated;
         _name = name;
+        _type = type;
         _description = description;
         _sprite = sprite;
         _price = price;

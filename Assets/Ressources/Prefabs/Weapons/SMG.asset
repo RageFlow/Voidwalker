@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ac314d57a43984b816e5c0cf181757, type: 3}
   m_Name: SMG
   m_EditorClassIdentifier: 
-  _name: MP5 (SMG)
+  _name: MP5
+  _type: SMG
   _description: A very affordable SMG perfect for medium damage.
-  _price: 100
+  _price: 300
   _activated: 0
   _color: {r: 1, g: 1, b: 1, a: 1}
   _sprite: {fileID: 554613045, guid: 5aa34f1cb8de1dd4a8ca06c1a4d67647, type: 3}
@@ -23,7 +24,10 @@ MonoBehaviour:
   _damage: 15
   _defaultDamage: 15
   _mobHits: 1
+  _projectileAmount: 1
+  _projectileSpread: 0
   _force: 7
+  _bulletAliveTime: 1
   _timeBetweenFiring: 0.1
   _defaultTimeBetweenFiring: 0.1
   _projectile: {fileID: 2024980906007618592, guid: 3ff434986782c5a4e8567c5edb24b476, type: 3}

@@ -28,7 +28,7 @@ public class BuyMenuPage_Controller : MonoBehaviour
                     component.UpdateUpgradeable(stat.MaxStages > 1);
                     component.UpdateStage(stat.Stage, stat.MaxStages);
                     component.UpdateCurrentValue(Global_Values.GetValue(stat.AffectedValue));
-                    component.SetValues(stat.Activated, stat.Name, stat.Description, stat.Sprite, stat.Price, BuyMenuType.Stat);
+                    component.SetValues(stat.Activated, stat.Name, stat.Type, stat.Description, stat.Sprite, stat.Price, BuyMenuType.Stat);
                     menuItems.Add(component);
                 }
             }
@@ -41,7 +41,7 @@ public class BuyMenuPage_Controller : MonoBehaviour
 
                 if (component != null)
                 {
-                    component.SetValues(weapon.Activated, weapon.Name, weapon.Description, weapon.Sprite, weapon.Price, BuyMenuType.Weapon);
+                    component.SetValues(weapon.Activated, weapon.Name, weapon.Type, weapon.Description, weapon.Sprite, weapon.Price, BuyMenuType.Weapon);
                     menuItems.Add(component);
                 }
             }
@@ -54,7 +54,7 @@ public class BuyMenuPage_Controller : MonoBehaviour
                 BuyMenuPageItem_Controller component = CreateItem();
                 if (component != null)
                 {
-                    component.SetValues(ability.Activated, ability.Name, ability.Description, ability.Sprite, ability.Price, BuyMenuType.Ability);
+                    component.SetValues(ability.Activated, ability.Name, ability.Type, ability.Description, ability.Sprite, ability.Price, BuyMenuType.Ability);
                     menuItems.Add(component);
                 }
             }

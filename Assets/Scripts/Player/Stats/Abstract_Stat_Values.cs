@@ -10,6 +10,9 @@ public class Abstract_Stat_Values : ScriptableObject
     public string Name => _name;
     [SerializeField] private string _name;
 
+    public string Type => _type;
+    [SerializeField] private string _type;
+
     public string Description => _description;
     [SerializeField] private string _description;
 

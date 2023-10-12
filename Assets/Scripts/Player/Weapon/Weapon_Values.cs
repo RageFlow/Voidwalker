@@ -7,6 +7,9 @@ public class Weapon_Values : MonoBehaviour
     public string Name => _name;
     private string _name;
 
+    public string Type => _type;
+    private string _type;
+
     public string Description => _description;
     private string _description;
 
@@ -36,9 +39,18 @@ public class Weapon_Values : MonoBehaviour
 
     public float MobHits => _mobHits;
     private float _mobHits;
+    
+    public float ProjectileAmount => _projectileAmount;
+    private float _projectileAmount;
+    
+    public float ProjectileSpread => _projectileSpread;
+    private float _projectileSpread;
 
     public float Force => _force;
     private float _force;
+    
+    public float BulletAliveTime => _bulletAliveTime;
+    private float _bulletAliveTime;
 
     public float TimeBetweenFiring => _timeBetweenFiring;
     private float _timeBetweenFiring;
@@ -52,6 +64,7 @@ public class Weapon_Values : MonoBehaviour
     public void SetValues(Abstract_Weapon_Values values)
     {
         _name = values.Name;
+        _type = values.Type;
         _description = values.Description;
         _price = values.Price;
         _activated = values.Activated;
@@ -65,6 +78,9 @@ public class Weapon_Values : MonoBehaviour
 
         _mobHits = values.MobHits;
         _force = values.Force;
+        _bulletAliveTime = values.BulletAliveTime;
+        _projectileAmount = values.ProjectileAmount;
+        _projectileSpread = values.ProjectileSpread;
 
         _timeBetweenFiring = values.TimeBetweenFiring;
         _defaultTimeBetweenFiring = values.TimeBetweenFiring;

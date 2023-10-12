@@ -7,3 +7,11 @@ public enum BuyMenuType
     Ability,
     Misc
 }
+
+public enum OptionMenuItemType
+{
+    Slider,
+    Button,
+    Toggle,
+    Dropdown
+}
