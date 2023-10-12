@@ -10,7 +10,9 @@ public class HealthBar_Controller : MonoBehaviour
 
     private SpriteRenderer _spriteRenderer;
 
-    private Color _opacity = new Color(0f, 0f, 0f, 255f);
+    private Color _opacity = new Color(0f, 0f, 0f, 1f);
+
+    private bool ShowHealthbar = true;
 
     private void Start()
     {
@@ -18,12 +20,13 @@ public class HealthBar_Controller : MonoBehaviour
 
         _enemyController = gameObject.transform.parent.gameObject.GetComponent<AI_Enemy_Controller>();
 
-        if (!Global_Values.ShowHealthbars)
+        if (Global_Values.DisableHealthbars)
         {
             gameObject.SetActive(false);
         }
         else if (Global_Values.HideHealthbars)
         {
+            ShowHealthbar = false;
             _spriteRenderer.color = _spriteRenderer.color - _opacity;
         }
 
@@ -44,15 +47,17 @@ public class HealthBar_Controller : MonoBehaviour
             }
             else
             {
-                Object.Destroy(gameObject);
+                Destroy(gameObject);
             }
         }
 
-        if (Global_Values.HideHealthbars)
+        if (Global_Values.HideHealthbars && ShowHealthbar)
         {
+            ShowHealthbar = false;
             _spriteRenderer.color = _spriteRenderer.color - _opacity;
         }
-        else{
+        else if (!Global_Values.HideHealthbars && !ShowHealthbar){
+            ShowHealthbar = true;
             _spriteRenderer.color = _spriteRenderer.color + _opacity;
         }
     }

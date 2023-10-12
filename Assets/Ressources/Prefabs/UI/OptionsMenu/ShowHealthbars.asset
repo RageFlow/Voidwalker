@@ -18,4 +18,4 @@ MonoBehaviour:
   _wholeFloatNumber: 0
   _floatValue: 0
   _boolValue: 0
-  _affectedValue: ShowHealthbars
+  _affectedValue: DisableHealthbars

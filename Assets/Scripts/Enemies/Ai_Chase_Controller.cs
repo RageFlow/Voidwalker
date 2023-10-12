@@ -65,8 +65,14 @@ public class AI_Chase_Controller : MonoBehaviour
 
     private void FixedUpdate()
     {
-        MoveWithAgent();
-        SetMovement();
+        if (Global_Values.MobAgentOnly)
+        {
+            MoveWithAgent();
+        }
+        else
+        {
+            SetMovement();
+        }
     }
 
     private void SetMovement()
