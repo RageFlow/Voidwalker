@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ac314d57a43984b816e5c0cf181757, type: 3}
   m_Name: Modified_AR
   m_EditorClassIdentifier: 
-  _name: Modified AR 15
+  _name: Modified AK 15
   _type: Rifle
   _description: Perfect for long range!
-  _price: 400
+  _price: 200
   _activated: 0
   _color: {r: 1, g: 1, b: 1, a: 1}
-  _sprite: {fileID: -2004761050, guid: 5aa34f1cb8de1dd4a8ca06c1a4d67647, type: 3}
-  _scale: {x: 1, y: 1}
+  _sprite: {fileID: 1964507142, guid: 5aa34f1cb8de1dd4a8ca06c1a4d67647, type: 3}
+  _scale: {x: 0.7, y: 0.8}
   _muzzleOffset: {x: 0.4, y: 0.05}
   _damage: 20
   _defaultDamage: 20

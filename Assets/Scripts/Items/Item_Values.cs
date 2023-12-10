@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Item_Values : MonoBehaviour
@@ -22,6 +20,8 @@ public class Item_Values : MonoBehaviour
     public void AddAmount(float amount)
     {
         _amount += amount;
+
+        _amount = Mathf.Round(_amount);
     }
 
     public float RemoveAmount(float value)
@@ -43,7 +43,7 @@ public class Item_Values : MonoBehaviour
     {
         _name = values.Name;
         _difficulty = values.Difficulty;
-        _amount = Mathf.Floor((values.Amount * StageManager.Instance.GameStage) / values.Difficulty);
+        _amount = Mathf.Round((values.Amount * StageManager.Instance.GameStage) / values.Difficulty);
 
         _amount = _amount * Global_Values.DropRateFactor;
 

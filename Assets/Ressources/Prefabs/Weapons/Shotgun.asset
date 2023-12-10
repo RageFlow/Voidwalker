@@ -15,12 +15,12 @@ MonoBehaviour:
   _name: Remington 448
   _type: Shotgun
   _description: A very affordable Shotgun perfect for close range damage.
-  _price: 500
+  _price: 200
   _activated: 0
   _color: {r: 1, g: 1, b: 1, a: 1}
   _sprite: {fileID: -1664834852, guid: 5aa34f1cb8de1dd4a8ca06c1a4d67647, type: 3}
   _scale: {x: 0.7, y: 0.7}
-  _muzzleOffset: {x: 0.4, y: 0.05}
+  _muzzleOffset: {x: 0.7, y: 0.05}
   _damage: 8
   _defaultDamage: 8
   _mobHits: 1

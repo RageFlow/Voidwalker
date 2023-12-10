@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Eye Watcher
   _health: 50
+  _showHealth: 0
   _damage: 5
   _timeToAttack: 0.1
   _difficulty: 3

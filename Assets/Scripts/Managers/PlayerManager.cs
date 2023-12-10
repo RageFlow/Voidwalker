@@ -31,7 +31,7 @@ public class PlayerManager : MonoBehaviour
 
     public float GetTotalMoney()
     {
-        var allMoney = _items.Select(x => x.Amount * x.Value).Sum();
+        var allMoney = _items.Select(x => Mathf.Round(x.Amount * x.Value)).Sum();
 
         return allMoney;
     }

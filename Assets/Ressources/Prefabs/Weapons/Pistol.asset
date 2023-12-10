@@ -27,7 +27,7 @@ MonoBehaviour:
   _projectileAmount: 1
   _projectileSpread: 0
   _force: 4
-  _bulletAliveTime: 1
+  _bulletAliveTime: 1.5
   _timeBetweenFiring: 0.7
   _defaultTimeBetweenFiring: 0.7
   _projectile: {fileID: 2024980906007618592, guid: 3ff434986782c5a4e8567c5edb24b476, type: 3}

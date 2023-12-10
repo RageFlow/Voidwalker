@@ -1,16 +1,10 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Reflection;
-using UnityEngine;
-using UnityEngine.Events;
 
 public class Global_Values
 {
     // Global Specific
     public static float GameDifficulty { get; private set; } = 1f; // How difficult
-    public static bool DisableHealthbars { get; private set; } = false;
-    public static bool HideHealthbars { get; private set; } = false;
     public static float DropRateFactor { get; private set; } = 1f;
     public static bool MobAgentOnly { get; private set; } = true;
 
@@ -19,6 +13,10 @@ public class Global_Values
     public static float PlayerMaxHealth { get; private set; } = 100f;
 
     public static float PickupRadius { get; private set; } = 1f;
+
+    // Mob Specific
+    public static bool DisableHealthbars { get; private set; } = false;
+    public static bool HideHealthbars { get; private set; } = false;
 
     // Abilities
     public static float DashPowerFactor { get; private set; } = 2f;

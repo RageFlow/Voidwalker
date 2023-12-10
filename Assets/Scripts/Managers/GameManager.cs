@@ -21,6 +21,11 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    private void Start()
+    {
+        MenuManager.Instance.ToggleGameMenu();
+    }
+
     // Global Features
     public bool GameActive => _gameActive;
     private bool _gameActive;

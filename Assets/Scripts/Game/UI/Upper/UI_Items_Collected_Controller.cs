@@ -40,7 +40,7 @@ public class Items_Collected_Controller : MonoBehaviour
 
                 if (uiItem != null)
                 {
-                    uiItem.UpdateAmount(item.Amount);
+                    uiItem.UpdateAmount(Mathf.Round(item.Amount));
                 }
                 else
                 {
