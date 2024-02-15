@@ -14,7 +14,7 @@ public class UI_Total_Points_Display : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (GameManager.Instance != null)
+        if (_text != null && GameManager.Instance != null)
         {
             _text.SetText($"Score: {StageManager.Instance.GlobalPointCount:n0}");
         }

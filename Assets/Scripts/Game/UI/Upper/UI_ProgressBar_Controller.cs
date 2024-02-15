@@ -21,7 +21,7 @@ public class UI_ProgressBar_Controller : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (GameManager.Instance != null)
+        if (_text != null && _image != null && GameManager.Instance != null)
         {
             var requirement = StageManager.Instance.GameLevelUpRequirement;
 

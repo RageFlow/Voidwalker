@@ -34,18 +34,21 @@ public class UI_Menu_Controller : MonoBehaviour
     public void IsVisible(bool value)
     {
         IsMenuVisible = value;
-        if (!GameManager.Instance.GameActive)
+        if (_menuText != null && _resumeButton != null && _restartButton != null)
         {
-            gameObject.SetActive(true);
-            _menuText.SetText("GAME OVER!");
-            _resumeButton.SetActive(false);
-            _restartButton.SetActive(true);
-        }
-        else
-        {
-            gameObject.SetActive(value);
-            _resumeButton.SetActive(true);
-            _restartButton.SetActive(false);
+            if (!GameManager.Instance.GameActive)
+            {
+                gameObject.SetActive(true);
+                _menuText.SetText("GAME OVER!");
+                _resumeButton.SetActive(false);
+                _restartButton.SetActive(true);
+            }
+            else
+            {
+                gameObject.SetActive(value);
+                _resumeButton.SetActive(true);
+                _restartButton.SetActive(false);
+            }
         }
     }
 

@@ -29,10 +29,13 @@ public class UI_Item_Controller : MonoBehaviour
 
     public void SetInfo(Item_Values values)
     {
-        _image.sprite = values.ItemSprite;
-        _name = values.Name;
-        _amount = values.Amount;
-        _text.SetText(_amount.ToString());
+        if (_image != null && _text != null)
+        {
+            _image.sprite = values.ItemSprite;
+            _name = values.Name;
+            _amount = values.Amount;
+            _text.SetText(_amount.ToString());
+        }
     }
 
 }

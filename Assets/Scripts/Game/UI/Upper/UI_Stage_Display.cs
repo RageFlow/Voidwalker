@@ -14,7 +14,7 @@ public class UI_Stage_Display : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (GameManager.Instance != null)
+        if (_text != null && GameManager.Instance != null)
         {
             _text.SetText($"Stage\n{StageManager.Instance.GameStage}/{StageManager.Instance.GameStagesTotal}");
         }

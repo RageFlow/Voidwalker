@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Murky Slaad
   _health: 50
+  _showHealth: 0
   _damage: 10
   _timeToAttack: 0.5
   _difficulty: 4
@@ -22,5 +23,5 @@ MonoBehaviour:
   _sprite: {fileID: -491824102, guid: d4c84422c12a82b4a9df897898f5ded5, type: 3}
   _animatorController: {fileID: 9100000, guid: f85c44617cda354458143b014053245c, type: 2}
   _speed: 2
-  _chaseDistance: 1000
+  _chaseDistance: 10
   _stunTime: 0.01

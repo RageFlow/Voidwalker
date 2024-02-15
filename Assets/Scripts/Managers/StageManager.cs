@@ -40,6 +40,8 @@ public class StageManager : MonoBehaviour
             var extraPoints = _pointCount - _gameLevelUpRequirement;
             _gameStage++;
             _pointCount = extraPoints;
+
+            MobManager.Instance.UpdateMaxMobCount();
         }
     }
 

@@ -20,7 +20,7 @@ MonoBehaviour:
   _upgradeFactor: 0.05
   _inclusive: 0
   _defaultValue: 100
-  _price: 100
+  _price: 40
   _activated: 1
   _sprite: {fileID: 829125219, guid: 488e213b23a6816409143f06d835279f, type: 3}
   _affectedValue: PlayerMaxHealth

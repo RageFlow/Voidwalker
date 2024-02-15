@@ -53,6 +53,8 @@ public class AI_Enemy_Controller : MonoBehaviour
                 var main = _particleSystem.main;
                 main.startColor = _mob_Values.Color;
             }
+
+            MobManager.Instance.AddMobToMoblist(ID);
         }
         else
         {
@@ -94,6 +96,10 @@ public class AI_Enemy_Controller : MonoBehaviour
     {
         if (!Alive && _spriteRenderer.color.a <= 0f) // Destroy if Crude Anime Fade is done
         {
+            if (MobManager.Instance != null)
+            {
+                MobManager.Instance.RemoveMobFromMoblist(ID);
+            }
             Destroy(gameObject);
         }
     }

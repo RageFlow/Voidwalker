@@ -32,7 +32,7 @@ public class Items_Collected_Controller : MonoBehaviour
 
     private void UpdateUI()
     {
-        if (ItemManager.Instance != null)
+        if (_itemPrefab != null && ItemManager.Instance != null)
         {
             foreach (var item in PlayerManager.Instance.Items)
             {

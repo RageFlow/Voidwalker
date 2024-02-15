@@ -65,6 +65,8 @@ public class AI_Chase_Controller : MonoBehaviour
 
     private void FixedUpdate()
     {
+        _distance = Vector2.Distance(transform.position, Player_Movement.Instance.PlayerPosition);
+
         if (Global_Values.MobAgentOnly)
         {
             MoveWithAgent();
@@ -77,8 +79,6 @@ public class AI_Chase_Controller : MonoBehaviour
 
     private void SetMovement()
     {
-        _distance = Vector2.Distance(transform.position, Player_Movement.Instance.PlayerPosition);
-
         RaycastHit2D hit;
         var rayDirection = Player_Movement.Instance.PlayerPosition - transform.position;
 

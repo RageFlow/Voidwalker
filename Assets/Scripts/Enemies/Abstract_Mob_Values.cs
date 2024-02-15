@@ -23,9 +23,11 @@ public class Abstract_Mob_Values : ScriptableObject
     public float Difficulty => _difficulty;
     [SerializeField] private float _difficulty;
 
+
     // Gameplay
     public Abstract_Item_Values DroppedItem => _droppedItem;
     [SerializeField] private Abstract_Item_Values _droppedItem;
+
 
     // Visuals
     public Color Color => _color;

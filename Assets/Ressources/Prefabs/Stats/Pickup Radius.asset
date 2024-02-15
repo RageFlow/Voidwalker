@@ -20,7 +20,7 @@ MonoBehaviour:
   _upgradeFactor: 1
   _inclusive: 0
   _defaultValue: 1
-  _price: 100
+  _price: 20
   _activated: 1
   _sprite: {fileID: -2013111308, guid: 488e213b23a6816409143f06d835279f, type: 3}
   _affectedValue: PickupRadius
