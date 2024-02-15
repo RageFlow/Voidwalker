@@ -14,7 +14,7 @@ public class UI_Time_Display : MonoBehaviour
     {
         if (_text != null && DayNightManager.Instance != null)
         {
-            _text.SetText($"Time\n{DayNightManager.Instance.GetgameTimeConverted():n0}");
+            _text.SetText($"Time\n{DayNightManager.Instance.GetgameTimeConverted():n0} ({(DayNightManager.Instance.IsDay ? "Day" : "Night")})");
         }
     }
 }

@@ -12,6 +12,8 @@ public class AI_Chase_Controller : MonoBehaviour
     private float _stunTimer;
     private bool _stunned;
 
+    private bool _isAggressive;
+
     private float _distance;
 
     public bool ShouldBeFlipped => _shouldBeFlipped;
@@ -67,6 +69,16 @@ public class AI_Chase_Controller : MonoBehaviour
     {
         _distance = Vector2.Distance(transform.position, Player_Movement.Instance.PlayerPosition);
 
+        if (DayNightManager.Instance != null)
+        {
+            if (_isAggressive && DayNightManager.Instance.IsDay && Global_Values.MobAgentOnly)
+            {
+                // Reset increased chase distance
+                _agent.ResetPath();
+            }
+            _isAggressive = !DayNightManager.Instance.IsDay;
+        }
+
         if (Global_Values.MobAgentOnly)
         {
             MoveWithAgent();
@@ -96,7 +108,9 @@ public class AI_Chase_Controller : MonoBehaviour
 
     private void MoveWithAgent()
     {
-        if (CheckStunned() && _distance < _distanceBetween)
+        float extraDistance = _isAggressive ? _distanceBetween : 0f;
+
+        if (CheckStunned() && _distance < _distanceBetween + extraDistance)
         {
             _agent.SetDestination(Player_Movement.Instance.PlayerPosition);
 
@@ -106,9 +120,11 @@ public class AI_Chase_Controller : MonoBehaviour
 
     private void MoveWithDirect()
     {
+        float extraDistance = _isAggressive ? _distanceBetween : 0f;
+
         _agent.ResetPath();
 
-        if (CheckStunned() && _distance < _distanceBetween)
+        if (CheckStunned() && _distance < _distanceBetween + extraDistance)
         {
             Vector2 direction = Player_Movement.Instance.PlayerPosition - transform.position;
             direction.Normalize();

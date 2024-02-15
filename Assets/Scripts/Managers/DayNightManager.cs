@@ -20,45 +20,73 @@ public class DayNightManager : MonoBehaviour
     [SerializeField]
     private Light2D light2D;
 
-    private float Time = 720f; // 0 -> 1440
+    public bool LightsOn;
+    public bool IsDay = true;
 
-    private float Step = 1f / 600f;
+    // Maybe settings set variables
+    private static float TimeGap = 440f;
+    private float TimeSpeed = 1f / 30f;
+    private float FlashlightOnBelow = 0.5f;
 
+    // Untouchable variables
+    private static float _timeMax = 1440f;
+    private float Time = 440f; // 0 -> 1440
+    private float Step = 1f / ((_timeMax - TimeGap * 2) / 2);
     private float CurrentLight = 0f;
 
     private void FixedUpdate()
     {
-        if (Time >= 1440f)
+        if (Time >= _timeMax) // 1440
         {
             Time = 0;
         }
         else
         {
-            Time += 0.5f;
+            Time += TimeSpeed; // 0.5
         }
 
-        // 120
+        float dayStart = _timeMax / 2 - TimeGap / 2; // 500
+        float dayEnd = dayStart + TimeGap; // 940
 
-        if (Time >= 720f)
+        float nightStart = _timeMax - TimeGap / 2; // 1220
+        float nightEnd = TimeGap / 2; // 220
+
+        float transitionTime = dayStart - nightEnd;
+
+        // Night - Day
+        if (Time >= nightStart || Time <= nightEnd)
         {
-            if (Time > 840f && Time < 1440f)
+            // Pause on Night
+            IsDay = false;
+        }
+        else if (Time >= dayStart && Time <= dayEnd)
+        {
+            // Pause on Day
+            IsDay = true;
+        }
+        else // Run transition
+        {
+            // Making sure most of the time is day
+            IsDay = true;
+
+            // 940 -> 1220 ( + 1 is failsafe)
+            if (Time >= dayStart + 1)
             {
-                CurrentLight = (1440 - Time) * Step;
+                CurrentLight = (transitionTime - (Time - dayEnd)) * Step;
             }
-        }
-        else
-        {
-            if (Time > 120f)
+            // 220 -> 500
+            else
             {
-                CurrentLight = (Time - 120f) * Step;
+                CurrentLight = (Time - TimeGap / 2) * Step;
             }
-        }
 
+            if (light2D != null)
+            {
+                light2D.intensity = CurrentLight;
 
-
-        if (light2D != null)
-        {
-            light2D.intensity = CurrentLight;
+                // Turn lights on/off based on intensity
+                LightsOn = light2D.intensity < FlashlightOnBelow;
+            }
         }
     }
 
@@ -71,8 +99,8 @@ public class DayNightManager : MonoBehaviour
     {
         float hours = (float)Math.Floor(Time / 60);
 
-        float minutes = (float)Math.Floor(Time - hours);
+        float minutes = (float)Math.Floor(60 * (Time / 60 - hours));
 
-        return $"{hours}:{minutes}";
+        return $"{hours}:{minutes:00}";
     }
 }
